@@ -6,7 +6,7 @@ if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]:
 [void] [System.Reflection.Assembly]::LoadWithPartialName("System.Drawing") 
 [void] [System.Reflection.Assembly]::LoadWithPartialName("System.Windows.Forms")
 [void] [System.Reflection.Assembly]::LoadWithPartialName("PresentationFramework")
-
+$host.ui.RawUI.WindowTitle = “Fix Windows 11 Powershell”
 Clear-Host
 #powershell.exe -WindowStyle Hidden -file > $null
 
