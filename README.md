@@ -18,7 +18,7 @@ or Download and run Fix Windows 11.ps1
 - Fix Taskbar pinned apps and location
 - Windows Explorer settings
 
-## **why?**
+## **Why?**
 Well if you are somewhat of a power-user, you probably hate the way Windows 11 tries to limit the users. Use this script to be more like a power-user
 
 ## **Current version**
