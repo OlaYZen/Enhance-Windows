@@ -1,6 +1,10 @@
 # **Fix Windows 11**
 The script makes some part of windows 11 more like windows 10 (example: Desktop Right Click)
 
+
+
+[<img src="https://raw.githubusercontent.com/OlaYZen/Fix-Windows-11/main/Image.png"/>](https://github.com/OlaYZen/Fix-Windows-11/blob/master/Fix%20Windows%2011.ps1)
+
 ## **How to start the program**
 
 Open a [Elevated Windows Powershell Window](https://docs.microsoft.com/en-us/powershell/scripting/windows-powershell/starting-windows-powershell?view=powershell-7.2#with-administrative-privileges-run-as-administrator), and type: 
