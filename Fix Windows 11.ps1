@@ -166,11 +166,13 @@ function Win10RC(){
         {
             reg.exe add "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" /f /ve
             Stop-Process -n explorer
+            c:\windows\explorer.exe
         }
     else
         {
             reg.exe delete "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}" /f
             Stop-Process -n explorer
+            c:\windows\explorer.exe
         }
 }
 
@@ -203,13 +205,13 @@ function HiddenFiles(){
     if ($checkBox9.Checked)
         {
             Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\" -Name "Hidden" -Value 1
-            kill -n explorer
+            Stop-Process -n explorer
             c:\windows\explorer.exe
         }
     else
         {
             Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\" -Name "Hidden" -Value 2
-            kill -n explorer
+            Stop-Process -n explorer
             c:\windows\explorer.exe
         }
 }
@@ -442,6 +444,16 @@ $label.Text = 'Windows Explorer might open after checking the boxes. Just close 
 $label.Size = '380, 14'
 $Tab2.Controls.Add($label)
 
+#========================================================
+#    Info Label
+#========================================================
+
+$label2 = New-Object System.Windows.Forms.Label
+$label2.Location ='30,500'
+$label2.Name = 'INFOLABEL'
+$label2.Text = 'Windows Explorer might open after checking the boxes. Just close it'
+$label2.Size = '380, 14'
+$Tab3.Controls.Add($label2)
 #========================================================
 #    Version Label
 #========================================================
