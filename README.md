@@ -1,2 +1,2 @@
-# Fix-Windows-11
-Powershell script that fixes some annoying parts of Windows 11
+# Fix Windows 11
+The script makes some part of windows 11 more like windows 11 (example: Desktop Right Click)
