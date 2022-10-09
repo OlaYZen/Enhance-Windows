@@ -430,7 +430,7 @@ else {
 [System.Windows.Forms.Application]::EnableVisualStyles()
 $button = New-Object System.Windows.Forms.Button
 $button.Location ='30,50'
-$button.Size = '95, 35'
+$button.Size = '145, 35'
 $button.Name = "Debloat Windows 11"
 $button.Text = "Debloat Windows 11"
 $button.BackColor = "White"
@@ -445,7 +445,7 @@ $Tab3.Controls.Add($button)
 [System.Windows.Forms.Application]::EnableVisualStyles()
 $button2 = New-Object System.Windows.Forms.Button
 $button2.Location ='30,90'
-$button2.Size = '95, 35'
+$button2.Size = '145, 35'
 $button2.Name = "Enable Tabbed Explorer before release"
 $button2.Text = "Enable Tabbed Explorer before release"
 $button2.BackColor = "White"
