@@ -12,7 +12,6 @@ Clear-Host
 
 #========================================================
 #    Writes out OlaYZen's Name
-#    Unhide Console to see
 #========================================================
 
 write-host "                                           "
@@ -65,11 +64,6 @@ $Form.MaximizeBox = $False
 $Form.ShowInTaskbar = $true
 $Form.Controls.Add($FormTabControl)
 
-#========================================================
-#    Toggle Drag (Function)
-#========================================================
-
-
 #=============================================================================================================================
 #    Tab1 Settings
 #=============================================================================================================================
@@ -105,14 +99,6 @@ $Tab3.Name = "Windows Settings"
 $Tab3.Text = "Windows Settings"
 $Tab3.TabIndex = 2
 $FormTabControl.Controls.Add($Tab3)
-
-
-#if (Get-ItemPropertyValue -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\" -Name "TaskbarAl" = 0) 
-#{
-
-#}
-
-#$value = (Get-ItemPropertyValue -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\" -Name "TaskbarAl") 
 
 
 function ChangeTaskBarLocation(){
@@ -170,7 +156,6 @@ function RemSearch(){
             Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search\" -Name "SearchboxTaskbarMode" -Value 1
         }
 }
-
 
 function Win10RC(){
     if ($checkBox6.Checked)
@@ -248,7 +233,7 @@ if($value.TaskbarAl -eq 0)
 
 
 #========================================================
-#   Change TaskBar Location to Left
+#   Unpin Task View
 #========================================================
 
 $checkbox2 = new-object System.Windows.Forms.checkbox
@@ -265,7 +250,7 @@ if($value2.ShowTaskViewButton -eq 0)
 }
 
 #========================================================
-#   Change TaskBar Location to Left
+#   Unpin Chat
 #========================================================
 
 $checkbox3 = new-object System.Windows.Forms.checkbox
@@ -282,7 +267,7 @@ if($value3.TaskbarMn -eq 0)
 }
 
 #========================================================
-#   Change TaskBar Location to Left
+#   Unpin Widget
 #========================================================
 
 $checkbox4 = new-object System.Windows.Forms.checkbox
@@ -299,7 +284,7 @@ if($value4.TaskbarDa -eq 0)
 }
 
 #========================================================
-#   Change TaskBar Location to Left
+#   Unpin Search
 #========================================================
 
 $checkbox5 = new-object System.Windows.Forms.checkbox
@@ -316,7 +301,7 @@ if($value5.SearchboxTaskbarMode -eq 0)
 }
 
 #========================================================
-#   Change TaskBar Location to Left
+#   Windows 10 Right Click
 #========================================================
 
 $checkbox6 = new-object System.Windows.Forms.checkbox
@@ -331,7 +316,7 @@ if(Test-Path 'HKCU:\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2
 }
 
 #========================================================
-#   Change TaskBar Location to Left
+#   Compact View in Explorer
 #========================================================
 
 $checkbox7 = new-object System.Windows.Forms.checkbox
@@ -348,7 +333,7 @@ if($value7.UseCompactMode -eq 1)
 }
 
 #========================================================
-#   Change TaskBar Location to Left
+#   Show File Extensions in Explorer
 #========================================================
 
 $checkbox8 = new-object System.Windows.Forms.checkbox
@@ -365,7 +350,7 @@ if($value8.HideFileExt -eq 0)
 }
 
 #========================================================
-#   Change TaskBar Location to Left
+#   Show Hidden Files in Explorer
 #========================================================
 
 $checkbox9 = new-object System.Windows.Forms.checkbox
@@ -382,7 +367,7 @@ if($value9.Hidden -eq 1)
 }
 
 #========================================================
-#    Button MFA (NOT IN USE)
+#    Debloat Windows 11
 #========================================================
 
 [System.Windows.Forms.Application]::EnableVisualStyles()
@@ -396,12 +381,12 @@ $button.Add_Click({DEBLOAT})
 $Tab3.Controls.Add($button)
 
 #========================================================
-#    Accepted Label
+#    Info Label
 #========================================================
 
 $label = New-Object System.Windows.Forms.Label
 $label.Location ='30,500'
-$label.Name = 'Acceptedlabel'
+$label.Name = 'INFOLABEL'
 $label.Text = 'Windows Explorer might open after checking the boxes. Just close it'
 $label.Size = '380, 14'
 $Tab2.Controls.Add($label)
