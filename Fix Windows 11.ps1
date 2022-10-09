@@ -501,7 +501,7 @@ $Tab3.Controls.Add($button3)
 
 
 #========================================================
-#    Info Label test
+#    Info Label
 #========================================================
 
 $label = New-Object System.Windows.Forms.Label
