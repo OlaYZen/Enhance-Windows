@@ -1,4 +1,8 @@
 # **Fix Windows 11**
+![GitHub](https://img.shields.io/github/license/OlaYZen/Fix-Windows-11?color=gree&style=for-the-badge)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/OlaYZen/Fix-Windows-11?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/OlaYZen/Fix-Windows-11?color=orange&style=for-the-badge)
+
 The script makes some part of windows 11 more like windows 10 (example: Desktop Right Click)
 
 
@@ -18,6 +22,7 @@ or Download and run Fix Windows 11.ps1
 - Fix Taskbar pinned apps and location
 - Windows Explorer settings
 - Debloat Windows 11 (Link to [Chris Titus](https://www.youtube.com/c/ChrisTitusTech) Debloater)
+- Windows Explorer tabs before release
 
 ## **Why?**
 Well if you are somewhat of a power-user, you probably hate the way Windows 11 tries to limit the users. Use this script to be more like a power-user
