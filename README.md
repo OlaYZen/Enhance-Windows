@@ -17,6 +17,7 @@ or Download and run Fix Windows 11.ps1
 - Windows 10 Right Click
 - Fix Taskbar pinned apps and location
 - Windows Explorer settings
+- Debloat Windows 11 (Link to ChrisTitus Debloater)
 
 ## **Why?**
 Well if you are somewhat of a power-user, you probably hate the way Windows 11 tries to limit the users. Use this script to be more like a power-user
