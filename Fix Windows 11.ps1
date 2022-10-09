@@ -151,38 +151,7 @@ function RemWidget(){
 }
 
 function TabbedExplorer {
-$Url = "https://github.com/thebookisclosed/ViVe/releases/download/v0.3.1/ViVeTool-v0.3.1.zip"
-
-$DownloadZipFile = "C:\Users\$env:USERNAME\Downloads\" + $(Split-Path -Path $Url -Leaf)
-Remove-Item "C:\Users\$env:USERNAME\Downloads\ViVeTools\" -Force -Recurse
-mkdir "C:\Users\$env:USERNAME\Downloads\ViVeTools\"
-$ExtractPath = "C:\Users\$env:USERNAME\Downloads\ViVeTools\"
-
-Invoke-WebRequest -Uri $Url -OutFile $DownloadZipFile
-$ExtractShell = New-Object -ComObject Shell.Application 
-$ExtractFiles = $ExtractShell.Namespace($DownloadZipFile).Items() 
-$ExtractShell.NameSpace($ExtractPath).CopyHere($ExtractFiles) 
-Start-Process $ExtractPath
-
-Set-Location C:\Users\$env:USERNAME\Downloads\ViVeTools\
-Start-Sleep -Seconds 1
-vivetool.exe /enable /id:36354489
-vivetool.exe /enable /id:37634385
-vivetool.exe /enable /id:39145991
-Start-Sleep -Seconds 1
-Restart-Computer -Timeout 60
-}
-
-function DisableTabbedExp {
-Set-Location C:\Users\$env:USERNAME\Downloads\ViVeTools\
-Start-Sleep -Seconds 1
-vivetool.exe /disable /id:36354489
-vivetool.exe /disable /id:37634385
-vivetool.exe /disable /id:39145991
-Start-Sleep -Seconds 1
-Remove-Item "C:\Users\$env:USERNAME\Downloads\ViVeTool-v0.3.1.zip" -Force -Recurse
-Remove-Item "C:\Users\$env:USERNAME\Downloads\ViVeTools\" -Force -Recurse
-Restart-Computer -Timeout 60
+Start-Process https://pureinfotech.com/enable-tabs-file-explorer-windows-11/
 }
 
 function RemSearch(){
@@ -477,28 +446,11 @@ $Tab3.Controls.Add($button)
 $button2 = New-Object System.Windows.Forms.Button
 $button2.Location ='30,90'
 $button2.Size = '95, 35'
-$button2.Name = "Enable Tabbed Explorer"
-$button2.Text = "Enable Tabbed Explorer"
+$button2.Name = "Enable Tabbed Explorer before release"
+$button2.Text = "Enable Tabbed Explorer before release"
 $button2.BackColor = "White"
-$button2.Visible = $false
 $button2.Add_Click({TabbedExplorer})
 $Tab3.Controls.Add($button2)
-
-#========================================================
-#    Disable Tabbed Explorer
-#========================================================
-
-[System.Windows.Forms.Application]::EnableVisualStyles()
-$button3 = New-Object System.Windows.Forms.Button
-$button3.Location ='135,90'
-$button3.Size = '95, 35'
-$button3.Name = "Disable Tabbed Explorer"
-$button3.Text = "Disable Tabbed Explorer"
-$button3.BackColor = "White"
-$button3.Visible = $false
-$button3.Add_Click({DisableTabbedExp})
-$Tab3.Controls.Add($button3)
-
 
 #========================================================
 #    Info Label
@@ -558,7 +510,7 @@ $Tab3.Controls.Add($versionlabel3)
 #    Adds Custom Icon
 #========================================================
 
-$iconBase64      = 'iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAAXNSR0IB2cksfwAAAAlwSFlzAAALEwAACxMBAJqcGAAAABtQTFRFAK3vxOz70/H8xez78fr+9fz+1fH81PH8+P3/zZt4hgAAAClJREFUeJxjYIAARgUGVDBCBAwFwUAkEEILMqSXg0FpO4QuHzQuHRgBAFl9DMAqdI3kAAAAAElFTkSuQmCC'
+$iconBase64      = 'iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAAXNSR0IB2cksfwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAA9QTFRFAK3v/f7//////v///P7/AvIOlwAAACJJREFUeJxjYIAAISUGVKA0LAWU0ACRAspwrrLKoPELXQQA1FgP5VvkKioAAAAASUVORK5CYII='
 $iconBytes       = [Convert]::FromBase64String($iconBase64)
 $stream          = [System.IO.MemoryStream]::new($iconBytes, 0, $iconBytes.Length)
 $Form.Icon       = [System.Drawing.Icon]::FromHandle(([System.Drawing.Bitmap]::new($stream).GetHIcon()))
