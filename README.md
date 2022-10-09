@@ -22,4 +22,4 @@ or Download and run Fix Windows 11.ps1
 Well if you are somewhat of a power-user, you probably hate the way Windows 11 tries to limit the users. Use this script to be more like a power-user
 
 ## **Current version**
-Version **1.0** is the current version of the script
+Version **1.1** is the current version of the script
