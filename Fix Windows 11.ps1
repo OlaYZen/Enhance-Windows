@@ -7,7 +7,15 @@
 [void] [System.Reflection.Assembly]::LoadWithPartialName("PresentationFramework")
 
 
-$version = "Version 1.1"
+$version = "Version 1.1.2"
+$versionlocation = "415,500"
+
+#========================================================
+#    Fonts used in Labels
+#========================================================
+
+$BigFont = New-Object System.Drawing.Font("Arial",30,[System.Drawing.FontStyle]::Bold)
+
 
 Clear-Host
 $host.ui.RawUI.WindowTitle = "Fix Windows 11 Powershell"
@@ -103,6 +111,9 @@ $Tab3.Text = "Windows Settings"
 $Tab3.TabIndex = 2
 $FormTabControl.Controls.Add($Tab3)
 
+#========================================================
+#    Functions
+#========================================================
 
 function ChangeTaskBarLocation(){
     if ($checkBox.Checked)
@@ -247,8 +258,8 @@ function Unpinabove(){
 #========================================================
 
 $checkbox = new-object System.Windows.Forms.checkbox
-$checkbox.Location ='30,30'
-$checkbox.Size = '250,14'
+$checkbox.Location ='30,50'
+$checkbox.Size = '250,20'
 $checkbox.Text = "Change TaskBar Location to Left"
 $checkbox.Add_CheckStateChanged({ChangeTaskBarLocation})
 $Tab1.Controls.Add($checkbox) 
@@ -265,8 +276,8 @@ if($value.TaskbarAl -eq 0)
 #========================================================
 
 $checkbox2 = new-object System.Windows.Forms.checkbox
-$checkbox2.Location ='30,70'
-$checkbox2.Size = '250,14'
+$checkbox2.Location ='30,90'
+$checkbox2.Size = '250,20'
 $checkbox2.Text = "Unpin Task View"
 $checkbox2.Add_CheckStateChanged({RemTaskView})
 $Tab1.Controls.Add($checkbox2) 
@@ -282,8 +293,8 @@ if($value2.ShowTaskViewButton -eq 0)
 #========================================================
 
 $checkbox3 = new-object System.Windows.Forms.checkbox
-$checkbox3.Location ='30,110'
-$checkbox3.Size = '250,14'
+$checkbox3.Location ='30,130'
+$checkbox3.Size = '250,20'
 $checkbox3.Text = "Unpin Chat"
 $checkbox3.Add_CheckStateChanged({RemChat})
 $Tab1.Controls.Add($checkbox3) 
@@ -299,8 +310,8 @@ if($value3.TaskbarMn -eq 0)
 #========================================================
 
 $checkbox4 = new-object System.Windows.Forms.checkbox
-$checkbox4.Location ='30,90'
-$checkbox4.Size = '250,14'
+$checkbox4.Location ='30,110'
+$checkbox4.Size = '250,20'
 $checkbox4.Text = "Unpin Widget"
 $checkbox4.Add_CheckStateChanged({RemWidget})
 $Tab1.Controls.Add($checkbox4) 
@@ -316,8 +327,8 @@ if($value4.TaskbarDa -eq 0)
 #========================================================
 
 $checkbox5 = new-object System.Windows.Forms.checkbox
-$checkbox5.Location ='30,50'
-$checkbox5.Size = '250,14'
+$checkbox5.Location ='30,70'
+$checkbox5.Size = '250,20'
 $checkbox5.Text = "Unpin Search"
 $checkbox5.Add_CheckStateChanged({RemSearch})
 $Tab1.Controls.Add($checkbox5) 
@@ -333,8 +344,8 @@ if($value5.SearchboxTaskbarMode -eq 0)
 #========================================================
 
 $checkbox6 = new-object System.Windows.Forms.checkbox
-$checkbox6.Location ='30,30'
-$checkbox6.Size = '250,14'
+$checkbox6.Location ='30,50'
+$checkbox6.Size = '250,20'
 $checkbox6.Text = "Windows 10 Right Click"
 $checkbox6.Add_CheckStateChanged({Win10RC})
 $Tab3.Controls.Add($checkbox6) 
@@ -348,8 +359,8 @@ if(Test-Path 'HKCU:\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2
 #========================================================
 
 $checkbox7 = new-object System.Windows.Forms.checkbox
-$checkbox7.Location ='30,50'
-$checkbox7.Size = '250,14'
+$checkbox7.Location ='30,70'
+$checkbox7.Size = '250,20'
 $checkbox7.Text = "Compact View in Explorer"
 $checkbox7.Add_CheckStateChanged({CompactView})
 $Tab2.Controls.Add($checkbox7) 
@@ -365,8 +376,8 @@ if($value7.UseCompactMode -eq 1)
 #========================================================
 
 $checkbox8 = new-object System.Windows.Forms.checkbox
-$checkbox8.Location ='30,70'
-$checkbox8.Size = '250,14'
+$checkbox8.Location ='30,90'
+$checkbox8.Size = '250,20'
 $checkbox8.Text = "Show File Extensions in Explorer"
 $checkbox8.Add_CheckStateChanged({FileExt})
 $Tab2.Controls.Add($checkbox8) 
@@ -382,8 +393,8 @@ if($value8.HideFileExt -eq 0)
 #========================================================
 
 $checkbox9 = new-object System.Windows.Forms.checkbox
-$checkbox9.Location ='30,30'
-$checkbox9.Size = '250,14'
+$checkbox9.Location ='30,50'
+$checkbox9.Size = '250,20'
 $checkbox9.Text = "Show Hidden Files in Explorer"
 $checkbox9.Add_CheckStateChanged({HiddenFiles})
 $Tab2.Controls.Add($checkbox9) 
@@ -399,8 +410,8 @@ if($value9.Hidden -eq 1)
 #========================================================
 
 $checkbox10 = new-object System.Windows.Forms.checkbox
-$checkbox10.Location ='30,130'
-$checkbox10.Size = '250,14'
+$checkbox10.Location ='30,150'
+$checkbox10.Size = '250,20'
 $checkbox10.Text = "Unpin all above"
 $checkbox10.Add_CheckStateChanged({Unpinabove})
 $Tab1.Controls.Add($checkbox10) 
@@ -429,7 +440,7 @@ else {
 
 [System.Windows.Forms.Application]::EnableVisualStyles()
 $button = New-Object System.Windows.Forms.Button
-$button.Location ='30,50'
+$button.Location ='30,70'
 $button.Size = '145, 35'
 $button.Name = "Debloat Windows 11"
 $button.Text = "Debloat Windows 11"
@@ -444,7 +455,7 @@ $Tab3.Controls.Add($button)
 
 [System.Windows.Forms.Application]::EnableVisualStyles()
 $button2 = New-Object System.Windows.Forms.Button
-$button2.Location ='30,90'
+$button2.Location ='30,110'
 $button2.Size = '145, 35'
 $button2.Name = "Enable Tabbed Explorer before release"
 $button2.Text = "Enable Tabbed Explorer before release"
@@ -457,7 +468,7 @@ $Tab3.Controls.Add($button2)
 #========================================================
 
 $label = New-Object System.Windows.Forms.Label
-$label.Location ='30,500'
+$label.Location ='1,500'
 $label.Name = 'INFOLABEL'
 $label.Text = 'Windows Explorer might open after checking the boxes. Just close it'
 $label.Size = '380, 14'
@@ -468,7 +479,7 @@ $Tab2.Controls.Add($label)
 #========================================================
 
 $label2 = New-Object System.Windows.Forms.Label
-$label2.Location ='30,500'
+$label2.Location ='1,500'
 $label2.Name = 'INFOLABEL'
 $label2.Text = 'Windows Explorer might open after checking the boxes. Just close it'
 $label2.Size = '380, 14'
@@ -478,7 +489,7 @@ $Tab3.Controls.Add($label2)
 #========================================================
 
 $versionlabel = New-Object System.Windows.Forms.Label
-$versionlabel.Location ='430,500'
+$versionlabel.Location = $versionlocation
 $versionlabel.Name = 'Version'
 $versionlabel.Text = $version
 $versionlabel.Size = '420, 14'
@@ -489,7 +500,7 @@ $Tab1.Controls.Add($versionlabel)
 #========================================================
 
 $versionlabel2 = New-Object System.Windows.Forms.Label
-$versionlabel2.Location ='430,500'
+$versionlabel2.Location = $versionlocation
 $versionlabel2.Name = 'Version'
 $versionlabel2.Text = $version
 $versionlabel2.Size = '420, 14'
@@ -500,11 +511,49 @@ $Tab2.Controls.Add($versionlabel2)
 #========================================================
 
 $versionlabel3 = New-Object System.Windows.Forms.Label
-$versionlabel3.Location ='430,500'
+$versionlabel3.Location = $versionlocation
 $versionlabel3.Name = 'Version'
 $versionlabel3.Text = $version
 $versionlabel3.Size = '420, 14'
 $Tab3.Controls.Add($versionlabel3)
+
+#========================================================
+#    Search in AzureAD Label
+#========================================================
+
+$tbsettingslabel = New-Object System.Windows.Forms.Label
+$tbsettingslabel.Location = '5, 5' 
+$tbsettingslabel.Name = 'tbsettingslabel'
+$tbsettingslabel.Text = 'Taskbar Settings'
+$tbsettingslabel.Size = '422, 122'
+$tbsettingslabel.Font = $BigFont
+$Tab1.Controls.Add($tbsettingslabel)
+
+#========================================================
+#    Search in AzureAD Label
+#========================================================
+
+$expsettingslabel = New-Object System.Windows.Forms.Label
+$expsettingslabel.Location = '5, 5' 
+$expsettingslabel.Name = 'expsettingslabel'
+$expsettingslabel.Text = 'Explorer Settings'
+$expsettingslabel.Size = '422, 122'
+$expsettingslabel.Font = $BigFont
+$Tab2.Controls.Add($expsettingslabel)
+
+
+#========================================================
+#    Search in AzureAD Label
+#========================================================
+
+$winsettingslabel = New-Object System.Windows.Forms.Label
+$winsettingslabel.Location = '5, 5' 
+$winsettingslabel.Name = 'winsettingslabel'
+$winsettingslabel.Text = 'Windows Settings'
+$winsettingslabel.Size = '422, 122'
+$winsettingslabel.Font = $BigFont
+$Tab3.Controls.Add($winsettingslabel)
+
 
 #========================================================
 #    Adds Custom Icon
