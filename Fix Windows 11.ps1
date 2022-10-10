@@ -570,7 +570,7 @@ $button4 = New-Object System.Windows.Forms.Button
 $button4.Location ='30,190'
 $button4.Size = '145, 35'
 $button4.Name = "Update Windows"
-$button4.Text = "Update WIndows"
+$button4.Text = "Update Windows"
 $button4.BackColor = "White"
 $button4.Add_Click({UpdWin})
 $Tab3.Controls.Add($button4)
