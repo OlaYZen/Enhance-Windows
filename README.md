@@ -9,6 +9,8 @@ The script makes some part of windows 11 more like windows 10 (example: Desktop 
 
 [<img src="https://raw.githubusercontent.com/OlaYZen/Fix-Windows-11/master/Image.png"/>](https://github.com/OlaYZen/Fix-Windows-11/blob/master/Fix%20Windows%2011.ps1)
 
+*Picture of program using Powershell 7*
+
 ## **How to start the program**
 
 Open a Powershell Window, and type: 
