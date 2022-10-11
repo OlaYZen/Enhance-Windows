@@ -3,7 +3,7 @@ The script makes some part of windows 11 more like windows 10 (example: Desktop 
 
 
 
-[<img src="https://raw.githubusercontent.com/OlaYZen/Enhance-Windows/Release-v1.1/Image.png"/>](https://github.com/OlaYZen/Fix-Windows-11/blob/master/Fix%20Windows%2011.ps1)
+[<img src="https://raw.githubusercontent.com/OlaYZen/Enhance-Windows/Release-v1.1.2/Image.png"/>](https://github.com/OlaYZen/Fix-Windows-11/blob/master/Fix%20Windows%2011.ps1)
 
 ## **How to start the program**
 
