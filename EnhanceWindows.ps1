@@ -362,6 +362,7 @@ elseif($value13.ShowSecondsInSystemClock -eq 1)
 }
 else 
 {
+    write-host "ShowSecondsInSystemClock Does not exist. Creating"
     reg.exe add HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\ /v  ShowSecondsInSystemClock /t  REG_DWORD /d  0
 }
 
@@ -377,6 +378,7 @@ elseif($value15.DisallowShaking -eq 1)
 }
 else 
 {
+    write-host "DisallowShaking Does not exist. Creating"
     reg.exe add HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\ /v  DisallowShaking /t  REG_DWORD /d  0
 }
 
@@ -428,7 +430,7 @@ $FormTabControl.Controls.Add($Tab1)
 #    Version Number
 #========================================================
 
-$version = "Version 1.1.5 (Build 1151.08)"
+$version = "Version 1.1.5 (Build 1151.09)"
 
 #========================================================
 #   Change TaskBar Location to Left
