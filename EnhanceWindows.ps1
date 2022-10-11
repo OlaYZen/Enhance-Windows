@@ -1,21 +1,10 @@
 #========================================================
 #    Starts Powershell with the Modules and as hidden
 #========================================================
-
+#if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) { Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs; exit }
 [void] [System.Reflection.Assembly]::LoadWithPartialName("System.Drawing") 
 [void] [System.Reflection.Assembly]::LoadWithPartialName("System.Windows.Forms")
 [void] [System.Reflection.Assembly]::LoadWithPartialName("PresentationFramework")
-
-#========================================================
-#    Version Number
-#========================================================
-
-$version = "Version 1.1.3"
-$versionlocation = $VSLocation
-
-#$VSLocation = "385,500" #PreExtended = "385,500"
-#$VSLocation = "395,500" #Pre = "395,500"
-$VSLocation = "415,500" #Full = "415,500"
 
 #========================================================
 #    Fonts used in Labels
@@ -28,7 +17,7 @@ $LabelFont = New-Object System.Drawing.Font("Arial",30,[System.Drawing.FontStyle
 #========================================================
 
 Clear-Host
-$host.ui.RawUI.WindowTitle = "Fix Windows 11 Powershell"
+$host.ui.RawUI.WindowTitle = "Enhance Windows Powershell"
 powershell.exe -WindowStyle Hidden -file > $null
 
 #========================================================
@@ -79,8 +68,8 @@ $FormTabControl.AutoSize = $true
 $Form = New-Object System.Windows.Forms.Form
 $Form.StartPosition = "CenterScreen"
 $Form.FormBorderStyle = [System.Windows.Forms.FormBorderStyle]::FixedDialog
-$Form.Name = "Fix Windows 11"
-$Form.Text = "Fix Windows 11"
+$Form.Name = "Enhance Windows"
+$Form.Text = "Enhance Windows"
 $Form.MaximizeBox = $False
 $Form.ShowInTaskbar = $true
 $Form.Controls.Add($FormTabControl)
@@ -138,6 +127,10 @@ function TabbedExplorer {
 Start-Process https://pureinfotech.com/enable-tabs-file-explorer-windows-11/
 }
 
+function TestButton {
+    Write-Host "Currently In Development"
+    }
+
 function RemSearch(){
     if ($checkBox5.Checked)
         {
@@ -148,6 +141,97 @@ function RemSearch(){
             Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search\" -Name "SearchboxTaskbarMode" -Value 1
         }
 }
+
+function RemSearchwin10(){
+    if ($checkBox12.Checked)
+        {
+            Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search\" -Name "SearchboxTaskbarMode" -Value 0
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
+        }
+    else
+        {
+            Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search\" -Name "SearchboxTaskbarMode" -Value 2
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
+        }
+}
+
+function RemTaskViewwin10(){
+    if ($checkBox13.Checked)
+        {
+            Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\" -Name "ShowTaskViewButton" -Value 0
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
+        }
+    else
+        {
+            Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\" -Name "ShowTaskViewButton" -Value 1
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
+        }
+}
+
+function RemCortana(){
+    if ($checkBox14.Checked)
+        {
+            Set-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowCortanaButton" -Value 0
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
+        }
+    else
+        {
+            Set-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowCortanaButton" -Value 1
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
+        }
+}
+function RemPeople(){
+    if ($checkBox15.Checked)
+        {
+            Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People" -Name "PeopleBand" -Value 0
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
+        }
+    else
+        {
+            Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People" -Name "PeopleBand" -Value 1
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
+        }
+}
+
+function RemInkWS(){
+    if ($checkBox16.Checked)
+        {
+            Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\PenWorkspace\" -Name "PenWorkspaceButtonDesiredVisibility" -Value 0
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
+        }
+    else
+        {
+            Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\PenWorkspace\" -Name "PenWorkspaceButtonDesiredVisibility" -Value 1
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
+        }
+}
+
+function RemTouchKey(){
+    if ($checkBox17.Checked)
+        {
+            Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\TabletTip\1.7" -Name "TipbandDesiredVisibility" -Value 0
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
+        }
+    else
+        {
+            Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\TabletTip\1.7" -Name "TipbandDesiredVisibility" -Value 1
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
+        }
+}
+
+
 
 function Win10RC(){
     if ($checkBox6.Checked)
@@ -204,16 +288,12 @@ function HiddenFiles(){
         }
 }
 
-function DEBLOAT(){
-    Start-Process https://christitus.com/debloat-windows-10-2020/
-}
-
 function InsApps(){
     Start-Process https://github.com/OlaYZen/App-Installer/
 }
 
 function UpdWin(){
-    Start-Process https://github.com/OlaYZen/Windows-Update
+    iwr -useb https://raw.githubusercontent.com/OlaYZen/Windows-Update/Main/Script.ps1 | iex
 }
 
 function Unpinabove(){
@@ -234,6 +314,28 @@ function Unpinabove(){
         }
 }
 
+function Unpinabovewin10(){
+    if ($checkBox18.Checked)
+        {
+            $checkBox12.Checked = $true
+            $checkbox13.Checked = $true
+            $checkbox14.Checked = $true
+            $checkbox15.Checked = $true
+            $checkbox16.Checked = $true
+            $checkbox17.Checked = $true
+
+        }
+    else
+        {
+            $checkBox12.Checked = $false
+            $checkbox13.Checked = $false
+            $checkbox14.Checked = $false
+            $checkbox15.Checked = $false
+            $checkbox16.Checked = $false
+            $checkbox17.Checked = $false
+        }
+}
+
 function HideShell(){
     if ($checkBox11.Checked)
         {
@@ -243,6 +345,9 @@ function HideShell(){
         {
             powershell.exe -WindowStyle Normal -file > $null
         }
+}
+function DebloatWin(){
+iwr -useb https://christitus.com/win | iex
 }
 
 
@@ -259,12 +364,18 @@ $Tab1.TabIndex = 2
 $FormTabControl.Controls.Add($Tab1)
 
 #========================================================
+#    Version Number
+#========================================================
+
+$version = "Version 1.1.4"
+
+#========================================================
 #   Change TaskBar Location to Left
 #========================================================
 
 $checkbox = new-object System.Windows.Forms.checkbox
 $checkbox.Location ='30,50'
-$checkbox.Size = '250,20'
+$checkbox.Size = '280,20'
 $checkbox.Text = "Change TaskBar Location to Left"
 $checkbox.Add_CheckStateChanged({ChangeTaskBarLocation})
 $Tab1.Controls.Add($checkbox) 
@@ -373,11 +484,161 @@ else {
 }
 
 #========================================================
+#   checkbox12 hides Search in win 10
+#========================================================
+
+$checkbox12 = new-object System.Windows.Forms.checkbox
+$checkbox12.Location ='30,50'
+$checkbox12.Size = '250,20'
+$checkbox12.Text = "Unpin Search"
+$checkbox12.Checked = $true
+$checkbox12.Add_CheckStateChanged({RemSearchwin10})
+$Tab1.Controls.Add($checkbox12) 
+
+$value6 = Get-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search\" -Name "SearchboxTaskbarMode"
+if($value6.SearchboxTaskbarMode -eq 0)
+{
+    $checkBox12.Checked = $true
+}
+
+#========================================================
+#   Unpin Task View Win 10
+#========================================================
+
+$checkbox13 = new-object System.Windows.Forms.checkbox
+$checkbox13.Location ='30,70'
+$checkbox13.Size = '250,20'
+$checkbox13.Text = "Unpin Task View"
+$checkbox13.Add_CheckStateChanged({RemTaskViewwin10})
+$Tab1.Controls.Add($checkbox13) 
+
+$value7 = Get-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\" -Name "ShowTaskViewButton"
+if($value7.ShowTaskViewButton -eq 0)
+{
+    $checkBox13.Checked = $true
+}
+
+#========================================================
+#   Unpin Cortana
+#========================================================
+
+$checkbox14 = new-object System.Windows.Forms.checkbox
+$checkbox14.Location ='30,90'
+$checkbox14.Size = '250,20'
+$checkbox14.Text = "Unpin Cortana"
+$checkbox14.Add_CheckStateChanged({RemCortana})
+$Tab1.Controls.Add($checkbox14) 
+
+$value8 = Get-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\" -Name "ShowCortanaButton"
+if($value8.ShowCortanaButton -eq 0)
+{
+    $checkBox14.Checked = $true
+}
+
+#========================================================
+#   Unpin People
+#========================================================
+
+$checkbox15 = new-object System.Windows.Forms.checkbox
+$checkbox15.Location ='30,110'
+$checkbox15.Size = '250,20'
+$checkbox15.Text = "Unpin People"
+$checkbox15.Add_CheckStateChanged({RemPeople})
+$Tab1.Controls.Add($checkbox15) 
+
+$value9 = Get-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People" -Name "PeopleBand"
+if($value9.PeopleBand -eq 0)
+{
+    $checkBox15.Checked = $true
+}
+
+#========================================================
+#   Unpin Ink Workspace
+#========================================================
+
+$checkbox16 = new-object System.Windows.Forms.checkbox
+$checkbox16.Location ='30,130'
+$checkbox16.Size = '250,20'
+$checkbox16.Text = "Unpin Ink Workspace"
+$checkbox16.Add_CheckStateChanged({RemInkWS})
+$Tab1.Controls.Add($checkbox16)
+
+$value10 = Get-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\PenWorkspace\" -Name "PenWorkspaceButtonDesiredVisibility"
+if($value10.PenWorkspaceButtonDesiredVisibility -eq 0)
+{
+    $checkbox16.Checked = $true
+}
+
+#========================================================
+#   Unpin Touch Keyboard
+#========================================================
+
+$checkbox17 = new-object System.Windows.Forms.checkbox
+$checkbox17.Location ='30,150'
+$checkbox17.Size = '250,20'
+$checkbox17.Text = "Unpin Touch Keyboard"
+$checkbox17.Add_CheckStateChanged({RemTouchKey})
+$Tab1.Controls.Add($checkbox17) 
+
+$value11 = Get-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\TabletTip\1.7" -Name "TipbandDesiredVisibility"
+if($value11.TipbandDesiredVisibility -eq 0)
+{
+    $checkbox17.Checked = $true
+}
+
+#========================================================
+#   Unpin/pin all
+#========================================================
+
+$checkbox18 = new-object System.Windows.Forms.checkbox
+$checkbox18.Location ='30,170'
+$checkbox18.Size = '250,20'
+$checkbox18.Text = "Unpin all above"
+$checkbox18.Add_CheckStateChanged({Unpinabovewin10})
+$Tab1.Controls.Add($checkbox18) 
+
+if($value6.SearchboxTaskbarMode -eq 0)
+{
+    if($value7.ShowTaskViewButton -eq 0)
+    {
+        if($value8.ShowCortanaButton -eq 0)
+        {
+            if($value9.PeopleBand -eq 0)
+            {
+                if($value10.PenWorkspaceButtonDesiredVisibility -eq 0)
+                {
+                    if($value11.TipbandDesiredVisibility -eq 0)
+                    {
+                        $checkbox18.Checked = $true
+                    }
+                }
+            }
+        }
+
+    }
+}
+else {
+    $checkbox18.Checked = $false
+}
+
+#========================================================
+#    Taskbar Settings Label
+#========================================================
+
+$tbsettingslabel2 = New-Object System.Windows.Forms.Label
+$tbsettingslabel2.Location = '5, 5' 
+$tbsettingslabel2.Name = 'tbsettingslabel Win10'
+$tbsettingslabel2.Text = 'Taskbar Settings Win10'
+$tbsettingslabel2.Size = '500, 122'
+$tbsettingslabel2.Font = $LabelFont
+$Tab1.Controls.Add($tbsettingslabel2)
+
+#========================================================
 #    Tab 1 Version Label
 #========================================================
 
 $versionlabel = New-Object System.Windows.Forms.Label
-$versionlabel.Location = $versionlocation
+$versionlabel.Location = "415,500"
 $versionlabel.Name = 'Version'
 $versionlabel.Text = $version
 $versionlabel.Size = '420, 14'
@@ -389,11 +650,22 @@ $Tab1.Controls.Add($versionlabel)
 
 $tbsettingslabel = New-Object System.Windows.Forms.Label
 $tbsettingslabel.Location = '5, 5' 
-$tbsettingslabel.Name = 'tbsettingslabel'
-$tbsettingslabel.Text = 'Taskbar Settings'
-$tbsettingslabel.Size = '422, 122'
+$tbsettingslabel.Name = 'tbsettingslabel Win11'
+$tbsettingslabel.Text = 'Taskbar Settings Win11'
+$tbsettingslabel.Size = '500, 122'
 $tbsettingslabel.Font = $LabelFont
 $Tab1.Controls.Add($tbsettingslabel)
+
+#========================================================
+#    Info Label
+#========================================================
+
+$label2 = New-Object System.Windows.Forms.Label
+$label2.Location ='1,496'
+$label2.Name = 'INFOLABEL'
+$label2.Text = 'Windows Explorer might open after checking the boxes. Just close it'
+$label2.Size = '380, 16'
+$Tab1.Controls.Add($label2)
 
 #=============================================================================================================================
 #    Tab 2 Settings
@@ -412,7 +684,7 @@ $FormTabControl.Controls.Add($Tab2)
 #========================================================
 
 $checkbox7 = new-object System.Windows.Forms.checkbox
-$checkbox7.Location ='30,70'
+$checkbox7.Location ='30,90'
 $checkbox7.Size = '250,20'
 $checkbox7.Text = "Compact View in Explorer"
 $checkbox7.Add_CheckStateChanged({CompactView})
@@ -429,8 +701,8 @@ if($value7.UseCompactMode -eq 1)
 #========================================================
 
 $checkbox8 = new-object System.Windows.Forms.checkbox
-$checkbox8.Location ='30,90'
-$checkbox8.Size = '250,20'
+$checkbox8.Location ='30,70'
+$checkbox8.Size = '350,20'
 $checkbox8.Text = "Show File Extensions in Explorer"
 $checkbox8.Add_CheckStateChanged({FileExt})
 $Tab2.Controls.Add($checkbox8) 
@@ -447,7 +719,7 @@ if($value8.HideFileExt -eq 0)
 
 $checkbox9 = new-object System.Windows.Forms.checkbox
 $checkbox9.Location ='30,50'
-$checkbox9.Size = '250,20'
+$checkbox9.Size = '350,20'
 $checkbox9.Text = "Show Hidden Files in Explorer"
 $checkbox9.Add_CheckStateChanged({HiddenFiles})
 $Tab2.Controls.Add($checkbox9) 
@@ -463,10 +735,10 @@ if($value9.Hidden -eq 1)
 #========================================================
 
 $label = New-Object System.Windows.Forms.Label
-$label.Location ='1,500'
+$label.Location ='1,496'
 $label.Name = 'INFOLABEL'
 $label.Text = 'Windows Explorer might open after checking the boxes. Just close it'
-$label.Size = '380, 14'
+$label.Size = '380, 16'
 $Tab2.Controls.Add($label)
 
 #========================================================
@@ -474,7 +746,7 @@ $Tab2.Controls.Add($label)
 #========================================================
 
 $versionlabel2 = New-Object System.Windows.Forms.Label
-$versionlabel2.Location = $versionlocation
+$versionlabel2.Location = "415,500"
 $versionlabel2.Name = 'Version'
 $versionlabel2.Text = $version
 $versionlabel2.Size = '420, 14'
@@ -527,10 +799,10 @@ if(Test-Path 'HKCU:\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2
 $button = New-Object System.Windows.Forms.Button
 $button.Location ='30,70'
 $button.Size = '145, 35'
-$button.Name = "Debloat Windows 11"
-$button.Text = "Debloat Windows 11"
+$button.Name = "Debloat Windows"
+$button.Text = "Debloat Windows"
 $button.BackColor = "White"
-$button.Add_Click({DEBLOAT})
+$button.Add_Click({DebloatWin})
 $Tab3.Controls.Add($button)
 
 #========================================================
@@ -539,8 +811,8 @@ $Tab3.Controls.Add($button)
 
 [System.Windows.Forms.Application]::EnableVisualStyles()
 $button2 = New-Object System.Windows.Forms.Button
-$button2.Location ='30,110'
-$button2.Size = '145, 35'
+$button2.Location ='30,190'
+$button2.Size = '145, 55'
 $button2.Name = "Enable Tabbed Explorer before release"
 $button2.Text = "Enable Tabbed Explorer before release"
 $button2.BackColor = "White"
@@ -553,7 +825,7 @@ $Tab3.Controls.Add($button2)
 
 [System.Windows.Forms.Application]::EnableVisualStyles()
 $button3 = New-Object System.Windows.Forms.Button
-$button3.Location ='30,150'
+$button3.Location ='30,110'
 $button3.Size = '145, 35'
 $button3.Name = "Install Apps"
 $button3.Text = "Install Applications"
@@ -567,7 +839,7 @@ $Tab3.Controls.Add($button3)
 
 [System.Windows.Forms.Application]::EnableVisualStyles()
 $button4 = New-Object System.Windows.Forms.Button
-$button4.Location ='30,190'
+$button4.Location ='30,150'
 $button4.Size = '145, 35'
 $button4.Name = "Update Windows"
 $button4.Text = "Update Windows"
@@ -576,22 +848,11 @@ $button4.Add_Click({UpdWin})
 $Tab3.Controls.Add($button4)
 
 #========================================================
-#    Info Label
-#========================================================
-
-$label2 = New-Object System.Windows.Forms.Label
-$label2.Location ='1,500'
-$label2.Name = 'INFOLABEL'
-$label2.Text = 'Windows Explorer might open after checking the boxes. Just close it'
-$label2.Size = '380, 14'
-$Tab3.Controls.Add($label2)
-
-#========================================================
 #    Tab 3 Version Label
 #========================================================
 
 $versionlabel3 = New-Object System.Windows.Forms.Label
-$versionlabel3.Location = $versionlocation
+$versionlabel3.Location = "415,500"
 $versionlabel3.Name = 'Version'
 $versionlabel3.Text = $version
 $versionlabel3.Size = '420, 14'
@@ -633,13 +894,27 @@ $checkbox11.Checked = $true
 $checkbox11.Add_CheckStateChanged({HideShell})
 $Tab4.Controls.Add($checkbox11) 
 
+#========================================================
+#    Test Button
+#========================================================
+
+[System.Windows.Forms.Application]::EnableVisualStyles()
+$button5 = New-Object System.Windows.Forms.Button
+$button5.Location ='30,70'
+$button5.Size = '145, 35'
+$button5.Name = "Test"
+$button5.Text = "Test"
+$button5.Visible = $false
+$button5.BackColor = "White"
+$button5.Add_Click({TestButton})
+$Tab4.Controls.Add($button5)
 
 #========================================================
 #    Tab 4 Version Label
 #========================================================
 
 $versionlabel4 = New-Object System.Windows.Forms.Label
-$versionlabel4.Location = $versionlocation
+$versionlabel4.Location = "415,500"
 $versionlabel4.Name = 'Version'
 $versionlabel4.Text = $version
 $versionlabel4.Size = '420, 14'
@@ -656,6 +931,74 @@ $pssettingslabel.Text = 'Powershell Settings'
 $pssettingslabel.Size = '422, 122'
 $pssettingslabel.Font = $LabelFont
 $Tab4.Controls.Add($pssettingslabel)
+
+
+
+#========================================================
+#   Check if OS is Windows 11
+#========================================================
+
+if($value3.TaskbarMn -eq 0)
+{
+    $checkbox3.Visible = $true
+}
+elseif($value3.TaskbarMn -eq 1)
+{
+    $checkbox3.Visible = $true
+}
+else {
+    $checkbox.Visible = $false
+    $checkbox2.Visible = $false
+    $checkbox3.Visible = $false
+    $checkbox4.Visible = $false
+    $checkbox5.Visible = $false
+    $checkbox10.Visible = $false
+    $tbsettingslabel.Visible = $false
+    $checkbox18.Visible = $true
+    $checkbox17.Visible = $true
+    $checkbox16.Visible = $true
+    $checkbox15.Visible = $true
+    $checkbox14.Visible = $true
+    $checkbox13.Visible = $true
+    $checkbox12.Visible = $true
+    $tbsettingslabel2.Visible = $true
+}
+
+#========================================================
+#   Check if OS is Windows 10
+#========================================================
+
+if($value10.PenWorkspaceButtonDesiredVisibility -eq 0)
+{
+    $checkbox17.Visible = $true
+    $checkbox6.Visible = $false
+    $checkbox7.Visible = $false
+    $button2.Visible = $false
+}
+elseif($value10.PenWorkspaceButtonDesiredVisibility -eq 1)
+{
+    $checkbox17.Visible = $true
+    $checkbox6.Visible = $false
+    $checkbox7.Visible = $false
+    $button2.Visible = $false
+}
+else {
+    $checkbox18.Visible = $false
+    $checkbox17.Visible = $false
+    $checkbox16.Visible = $false
+    $checkbox15.Visible = $false
+    $checkbox14.Visible = $false
+    $checkbox13.Visible = $false
+    $checkbox12.Visible = $false
+    $tbsettingslabel2.Visible = $false
+    $checkbox.Visible = $true
+    $checkbox2.Visible = $true
+    $checkbox3.Visible = $true
+    $checkbox4.Visible = $true
+    $checkbox5.Visible = $true
+    $checkbox10.Visible = $true
+    $tbsettingslabel.Visible = $true
+}
 
 
 

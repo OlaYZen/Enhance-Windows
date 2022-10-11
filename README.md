@@ -1,30 +1,50 @@
-# **Fix Windows 11**
-![GitHub](https://img.shields.io/github/license/OlaYZen/Fix-Windows-11?color=gree&style=for-the-badge)
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/OlaYZen/Fix-Windows-11?style=for-the-badge)
-![GitHub repo size](https://img.shields.io/github/repo-size/OlaYZen/Fix-Windows-11?color=orange&style=for-the-badge)
+# **Enhance Windows**
+![GitHub](https://img.shields.io/github/license/OlaYZen/Enhance-Windows?color=gree&style=for-the-badge)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/OlaYZen/Enhance-Windows?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/OlaYZen/Enhance-Windows?color=orange&style=for-the-badge)
 
-The script makes some part of windows 11 more like windows 10 (example: Desktop Right Click)
+This script Enhances both Windows 10 and 11 
+---
 
 
+[<img src="https://raw.githubusercontent.com/OlaYZen/Enhance-Windows/Release-v1.1.4/Win10.png"/>](https://github.com/OlaYZen/Enhance-Windows/blob/master/EnhanceWindows.ps1) [<img src="https://raw.githubusercontent.com/OlaYZen/Enhance-Windows/Release-v1.1.4/Win11.png"/>](https://github.com/OlaYZen/Enhance-Windows/blob/master/EnhanceWindows.ps1) 
 
-[<img src="https://raw.githubusercontent.com/OlaYZen/Fix-Windows-11/Release-v1.1.2/Image.png"/>](https://github.com/OlaYZen/Fix-Windows-11/blob/master/Fix%20Windows%2011.ps1)
 
-*Picture of program using Powershell 7*
+---
+## ⭐**How to start the program**⭐
 
-## **How to start the program**
-
-Open a Powershell Window, and type: 
+Open a [Elevated Windows Powershell Window](https://docs.microsoft.com/en-us/powershell/scripting/windows-powershell/starting-windows-powershell?view=powershell-7.2#with-administrative-privileges-run-as-administrator) , and type: 
 ```
-iwr -useb http://fix.olayzen.lol/ | iex
+iwr -useb https://raw.githubusercontent.com/OlaYZen/Enhance-Windows/Release-v1.1.4/EnhanceWindows.ps1 | iex
 ```
-or Download and run Fix Windows 11.ps1
+> or Download and run "EnhanceWindows.ps1" with an [elevated windows powershell window](https://docs.microsoft.com/en-us/powershell/scripting/windows-powershell/starting-windows-powershell?view=powershell-7.2#with-administrative-privileges-run-as-administrator)
 
-## **Features**
-- Windows 10 Right Click
-- Fix Taskbar pinned apps and location
-- Windows Explorer settings
-- Debloat Windows 11 (Link to [Chris Titus](https://www.youtube.com/c/ChrisTitusTech) Debloater)
-- Windows Explorer tabs before release
+## 💡Features💡
+with this program you could remove or add stuff that is missing from both versions of Windows. Here is a list of what you could do in each operating system. Note that every feature does not crossover from Windows 11 to Windows 10.
 
-## **Why?**
-Well if you are somewhat of a power-user, you probably hate the way Windows 11 tries to limit the users. Use this script to be more like a power-user
+<details>
+ <summary><b>Windows 10 Features</b></summary>
+
+    - Taskbar settings
+    - Windows Explorer settings
+    - Debloat Windows 10
+    - Installing Programs
+    - Windows and Program Updates
+ </details>
+
+<details>
+ <summary><b>Windows 11 Features</b></summary>
+
+    - Windows 10 Right Click
+    - Fix Taskbar pinned apps and location
+    - Windows Explorer settings
+    - Debloat Windows 11
+    - Windows Explorer tabs before release
+    - Installing Programs
+    - Windows and Program Updates
+ </details>
+
+📍Credits📍
+---
+
+- OlaYZen - Developer and Tester
