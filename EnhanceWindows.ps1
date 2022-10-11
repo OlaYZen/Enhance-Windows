@@ -20,7 +20,7 @@ $LabelFont = New-Object System.Drawing.Font("Arial",30,[System.Drawing.FontStyle
 
 Clear-Host
 $host.ui.RawUI.WindowTitle = "Enhance Windows Powershell"
-powershell.exe -WindowStyle Hidden -file > $null
+#powershell.exe -WindowStyle Hidden -file > $null
 
 #========================================================
 #    Writes out OlaYZen's Name
