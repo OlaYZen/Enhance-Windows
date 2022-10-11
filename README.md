@@ -52,4 +52,4 @@ with this program you could remove or add stuff that is missing from both versio
 📍Credits📍
 ---
 
-- [OlaYZen](https://github.com/OlaYZen) - Making everything
+- [OlaYZen](https://github.com/OlaYZen) - Making, Doing and Testing everything
