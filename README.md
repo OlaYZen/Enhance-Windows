@@ -10,7 +10,7 @@ This script Enhances both Windows 10 and 11
 <img src="https://raw.githubusercontent.com/OlaYZen/Enhance-Windows/Newest/Images/Windows%2010/Win%2010%201.png" alt="Win 10 Img" width="400"/><img src="https://raw.githubusercontent.com/OlaYZen/Enhance-Windows/Newest/Images/Windows%2011/Win%2011%201.png" alt="Win 11 Img" width="400"/>
 > how it looks like on each operating system
 > 
-> if you want to see more images of both versions [click me](https://github.com/OlaYZen/Enhance-Windows/wiki)
+> if you want to see more images of both versions [click me](https://github.com/OlaYZen/Enhance-Windows/wiki/Compare-Win10-vs-Win11)
 
 ---
 ## ⭐**How to start the program**⭐
