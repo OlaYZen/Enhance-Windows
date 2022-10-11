@@ -7,7 +7,8 @@ This script Enhances both Windows 10 and 11
 ---
 
 
-[<img src="https://raw.githubusercontent.com/OlaYZen/Enhance-Windows/Newest/Win10.png"/>](https://github.com/OlaYZen/Enhance-Windows/blob/Newest/EnhanceWindows.ps1) [<img src="https://raw.githubusercontent.com/OlaYZen/Enhance-Windows/Newest/Win11.png"/>](https://github.com/OlaYZen/Enhance-Windows/blob/Newest/EnhanceWindows.ps1) 
+<img src="Win10.png" alt="drawing" width="400"/><img src="Win11.png" alt="drawing" width="400"/>
+> how it looks like on each operating system
 
 
 ---
@@ -20,7 +21,7 @@ iwr -useb http://enhance.olayzen.lol/ | iex
 > or Download and run "EnhanceWindows.ps1" with an [elevated windows powershell window](https://docs.microsoft.com/en-us/powershell/scripting/windows-powershell/starting-windows-powershell?view=powershell-7.2#with-administrative-privileges-run-as-administrator)
 
 ## 💡Features💡
-with this program you could remove or add stuff that is missing from both versions of Windows. Here is a list of what you could do in each operating system. Note that every feature does not crossover from Windows 11 to Windows 10.
+with this program you could remove or add stuff that is missing from both versions of Windows. Here is a list of what you could do in each operating system. Note that every feature does not crossover from Windows 11 to Windows 10 and vice versa
 
 <details>
  <summary><b>Windows 10 Features</b></summary>
