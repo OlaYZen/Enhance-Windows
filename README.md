@@ -7,7 +7,7 @@ This script Enhances both Windows 10 and 11
 ---
 
 
-[<img src="https://raw.githubusercontent.com/OlaYZen/Enhance-Windows/Release-v1.1.4/Win10.png"/>](https://github.com/OlaYZen/Enhance-Windows/blob/master/EnhanceWindows.ps1) [<img src="https://raw.githubusercontent.com/OlaYZen/Enhance-Windows/Release-v1.1.4/Win11.png"/>](https://github.com/OlaYZen/Enhance-Windows/blob/master/EnhanceWindows.ps1) 
+[<img src="https://raw.githubusercontent.com/OlaYZen/Enhance-Windows/Newest/Win10.png"/>](https://github.com/OlaYZen/Enhance-Windows/blob/Newest/EnhanceWindows.ps1) [<img src="https://raw.githubusercontent.com/OlaYZen/Enhance-Windows/Newest/Win11.png"/>](https://github.com/OlaYZen/Enhance-Windows/blob/Newest/EnhanceWindows.ps1) 
 
 
 ---
@@ -15,7 +15,7 @@ This script Enhances both Windows 10 and 11
 
 Open a [Elevated Windows Powershell Window](https://docs.microsoft.com/en-us/powershell/scripting/windows-powershell/starting-windows-powershell?view=powershell-7.2#with-administrative-privileges-run-as-administrator) , and type: 
 ```
-iwr -useb https://raw.githubusercontent.com/OlaYZen/Enhance-Windows/Release-v1.1.4/EnhanceWindows.ps1 | iex
+iwr -useb http://enhance.olayzen.lol/ | iex
 ```
 > or Download and run "EnhanceWindows.ps1" with an [elevated windows powershell window](https://docs.microsoft.com/en-us/powershell/scripting/windows-powershell/starting-windows-powershell?view=powershell-7.2#with-administrative-privileges-run-as-administrator)
 
