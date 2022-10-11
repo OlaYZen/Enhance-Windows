@@ -18,7 +18,7 @@ $LabelFont = New-Object System.Drawing.Font("Arial",30,[System.Drawing.FontStyle
 
 Clear-Host
 $host.ui.RawUI.WindowTitle = "Enhance Windows Powershell"
-powershell.exe -WindowStyle Hidden -file > $null
+#powershell.exe -WindowStyle Hidden -file > $null
 
 #========================================================
 #    Writes out OlaYZen's Name
@@ -890,7 +890,7 @@ $checkbox11 = new-object System.Windows.Forms.checkbox
 $checkbox11.Location ='30,50'
 $checkbox11.Size = '250,20'
 $checkbox11.Text = "Hide Console"
-$checkbox11.Checked = $true
+$checkbox11.Checked = $false
 $checkbox11.Add_CheckStateChanged({HideShell})
 $Tab4.Controls.Add($checkbox11) 
 
