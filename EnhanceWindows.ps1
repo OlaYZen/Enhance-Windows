@@ -1,8 +1,6 @@
 #========================================================
 #    Starts Powershell with the Modules and as hidden
 #========================================================
-ECHO 'Y' | 
-if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) { Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs; exit }
 
 [void] [System.Reflection.Assembly]::LoadWithPartialName("System.Drawing") 
 [void] [System.Reflection.Assembly]::LoadWithPartialName("System.Windows.Forms")
@@ -20,7 +18,7 @@ $LabelFont = New-Object System.Drawing.Font("Arial",30,[System.Drawing.FontStyle
 
 Clear-Host
 $host.ui.RawUI.WindowTitle = "Enhance Windows Powershell"
-#powershell.exe -WindowStyle Hidden -file > $null
+powershell.exe -WindowStyle Hidden -file > $null
 
 #========================================================
 #    Writes out OlaYZen's Name
