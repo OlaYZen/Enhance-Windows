@@ -7,7 +7,7 @@ This script Enhances both Windows 10 and 11
 ---
 
 
-[<img src="https://raw.githubusercontent.com/OlaYZen/Enhance-Windows/Newest/Win10.png"/>](https://github.com/OlaYZen/Enhance-Windows/blob/Newest/EnhanceWindows.ps1) [<img src="https://raw.githubusercontent.com/OlaYZen/Enhance-Windows/Newest/Win11.png"/>](https://github.com/OlaYZen/Enhance-Windows/blob/Newest/EnhanceWindows.ps1) 
+<img src="Win10.png" alt="drawing" width="400"/><img src="Win11.png" alt="drawing" width="400"/>
 
 
 ---
