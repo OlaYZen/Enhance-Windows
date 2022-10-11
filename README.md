@@ -1,51 +1,25 @@
-# **Enhance Windows**
-![GitHub](https://img.shields.io/github/license/OlaYZen/Enhance-Windows?color=gree&style=for-the-badge)
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/OlaYZen/Enhance-Windows?style=for-the-badge)
-![GitHub repo size](https://img.shields.io/github/repo-size/OlaYZen/Enhance-Windows?color=orange&style=for-the-badge)
-
-This script Enhances both Windows 10 and 11 
----
+# **Fix Windows 11**
+The script makes some part of windows 11 more like windows 10 (example: Desktop Right Click)
 
 
-<img src="Win10.png" alt="drawing" width="400"/><img src="Win11.png" alt="drawing" width="400"/>
-> how it looks like on each operating system
 
+[<img src="https://raw.githubusercontent.com/OlaYZen/Fix-Windows-11/master/Image.png"/>](https://github.com/OlaYZen/Fix-Windows-11/blob/master/Fix%20Windows%2011.ps1)
 
----
-## ⭐**How to start the program**⭐
+## **How to start the program**
 
-Open a [Elevated Windows Powershell Window](https://docs.microsoft.com/en-us/powershell/scripting/windows-powershell/starting-windows-powershell?view=powershell-7.2#with-administrative-privileges-run-as-administrator) , and type: 
+Open a Powershell Window, and type: 
 ```
-iwr -useb http://enhance.olayzen.lol/ | iex
+iwr -useb http://fix.olayzen.lol/ | iex
 ```
-> or Download and run "EnhanceWindows.ps1" with an [elevated windows powershell window](https://docs.microsoft.com/en-us/powershell/scripting/windows-powershell/starting-windows-powershell?view=powershell-7.2#with-administrative-privileges-run-as-administrator)
+or Download and run Fix Windows 11.ps1
 
-## 💡Features💡
-with this program you could remove or add stuff that is missing from both versions of Windows. Here is a list of what you could do in each operating system. Note that every feature does not crossover from Windows 11 to Windows 10 and vice versa
+## **Features**
+- Windows 10 Right Click
+- Fix Taskbar pinned apps and location
+- Windows Explorer settings
 
-<details>
- <summary><b>Windows 10 Features</b></summary>
+## **Why?**
+Well if you are somewhat of a power-user, you probably hate the way Windows 11 tries to limit the users. Use this script to be more like a power-user
 
-    - Taskbar settings
-    - Windows Explorer settings
-    - Debloat Windows 10
-    - Installing Programs
-    - Windows and Program Updates
- </details>
-
-<details>
- <summary><b>Windows 11 Features</b></summary>
-
-    - Windows 10 Right Click
-    - Fix Taskbar pinned apps and location
-    - Windows Explorer settings
-    - Debloat Windows 11
-    - Windows Explorer tabs before release
-    - Installing Programs
-    - Windows and Program Updates
- </details>
-
-📍Credits📍
----
-
-- OlaYZen - Developer and Tester
+## **Current version**
+Version **1.1** is the current version of the script
