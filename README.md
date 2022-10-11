@@ -8,6 +8,7 @@ This script Enhances both Windows 10 and 11
 
 
 <img src="Win10.png" alt="drawing" width="400"/><img src="Win11.png" alt="drawing" width="400"/>
+> how it looks like on each operating system
 
 
 ---
