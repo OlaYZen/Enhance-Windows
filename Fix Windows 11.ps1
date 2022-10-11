@@ -6,9 +6,6 @@
 [void] [System.Reflection.Assembly]::LoadWithPartialName("System.Windows.Forms")
 [void] [System.Reflection.Assembly]::LoadWithPartialName("PresentationFramework")
 
-
-$version = "Version 1.1"
-
 Clear-Host
 $host.ui.RawUI.WindowTitle = "Fix Windows 11 Powershell"
 #powershell.exe -WindowStyle Hidden -file > $null
@@ -108,7 +105,6 @@ function ChangeTaskBarLocation(){
     if ($checkBox.Checked)
         {
             Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\" -Name "TaskbarAl" -Value 0
-            
         }
     else
         {
@@ -165,12 +161,12 @@ function Win10RC(){
     if ($checkBox6.Checked)
         {
             reg.exe add "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" /f /ve
-            Stop-Process -n explorer
+            kill -n explorer
         }
     else
         {
             reg.exe delete "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}" /f
-            Stop-Process -n explorer
+            kill -n explorer
         }
 }
 
@@ -188,13 +184,13 @@ function FileExt(){
     if ($checkBox8.Checked)
         {
             Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\" -Name "HideFileExt" -Value 0
-            Stop-Process -n explorer
+            kill -n explorer
             c:\windows\explorer.exe
         }
     else
         {
             Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\" -Name "HideFileExt" -Value 1
-            Stop-Process -n explorer
+            kill -n explorer
             c:\windows\explorer.exe
         }
 }
@@ -216,24 +212,6 @@ function HiddenFiles(){
 
 function DEBLOAT(){
     Start-Process https://christitus.com/debloat-windows-10-2020/
-}
-
-function Unpinabove(){
-    if ($checkBox10.Checked)
-        {
-            $checkbox2.Checked = $true
-            $checkbox3.Checked = $true
-            $checkbox4.Checked = $true
-            $checkbox5.Checked = $true
-
-        }
-    else
-        {
-            $checkbox2.Checked = $false
-            $checkbox3.Checked = $false
-            $checkbox4.Checked = $false
-            $checkbox5.Checked = $false
-        }
 }
 
 #========================================================
@@ -389,35 +367,6 @@ if($value9.Hidden -eq 1)
 }
 
 #========================================================
-#   Unpin/pin all
-#========================================================
-
-$checkbox10 = new-object System.Windows.Forms.checkbox
-$checkbox10.Location ='30,130'
-$checkbox10.Size = '250,14'
-$checkbox10.Text = "Unpin all above"
-$checkbox10.Add_CheckStateChanged({Unpinabove})
-$Tab1.Controls.Add($checkbox10) 
-
-if($value2.ShowTaskViewButton -eq 0)
-{
-    if($value3.TaskbarMn -eq 0)
-    {
-        if($value4.TaskbarDa -eq 0)
-        {
-            if($value5.SearchboxTaskbarMode -eq 0)
-            {
-            $checkBox10.Checked = $true
-            }
-        }
-
-    }
-}
-else {
-    $checkBox10.Checked = $false
-}
-
-#========================================================
 #    Debloat Windows 11
 #========================================================
 
@@ -449,7 +398,7 @@ $Tab2.Controls.Add($label)
 $versionlabel = New-Object System.Windows.Forms.Label
 $versionlabel.Location ='430,500'
 $versionlabel.Name = 'Version'
-$versionlabel.Text = $version
+$versionlabel.Text = 'Version 1.0'
 $versionlabel.Size = '420, 14'
 $Tab1.Controls.Add($versionlabel)
 
@@ -460,7 +409,7 @@ $Tab1.Controls.Add($versionlabel)
 $versionlabel2 = New-Object System.Windows.Forms.Label
 $versionlabel2.Location ='430,500'
 $versionlabel2.Name = 'Version'
-$versionlabel2.Text = $version
+$versionlabel2.Text = 'Version 1.0'
 $versionlabel2.Size = '420, 14'
 $Tab2.Controls.Add($versionlabel2)
 
@@ -471,7 +420,7 @@ $Tab2.Controls.Add($versionlabel2)
 $versionlabel3 = New-Object System.Windows.Forms.Label
 $versionlabel3.Location ='430,500'
 $versionlabel3.Name = 'Version'
-$versionlabel3.Text = $version
+$versionlabel3.Text = 'Version 1.0'
 $versionlabel3.Size = '420, 14'
 $Tab3.Controls.Add($versionlabel3)
 
