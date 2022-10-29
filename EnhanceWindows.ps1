@@ -1184,6 +1184,7 @@ if($value4.TaskbarDa -eq 0)
     $checkbox16.Visible = $false
     $checkbox17.Visible = $false
     $checkbox18.Visible = $false
+    $checkbox19.Visible = $false
 }
 elseif($value4.TaskbarDa -eq 1)
 {
@@ -1201,6 +1202,7 @@ elseif($value4.TaskbarDa -eq 1)
     $checkbox16.Visible = $false
     $checkbox17.Visible = $false
     $checkbox18.Visible = $false
+    $checkbox19.Visible = $false
     
 }
 else {
@@ -1224,6 +1226,7 @@ if($value9.PeopleBand -eq 0)
     $checkbox3.Visible = $false
     $checkbox4.Visible = $false
     $checkbox5.Visible = $false
+    $checkbox6.Visible = $false
     $checkbox10.Visible = $false
 }
 elseif($value9.PeopleBand -eq 1)
@@ -1240,6 +1243,7 @@ elseif($value9.PeopleBand -eq 1)
     $checkbox3.Visible = $false
     $checkbox4.Visible = $false
     $checkbox5.Visible = $false
+    $checkbox6.Visible = $false
     $checkbox10.Visible = $false
 }
 else {
