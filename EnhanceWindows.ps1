@@ -411,8 +411,20 @@ function DisableAeroShake(){
             }
     }
     
-
-
+    function ICBbutton(){
+        if ($checkBox21.Checked)
+            {
+                Set-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "AutoCheckSelect" -Value 1
+                Stop-Process -n explorer
+                c:\windows\explorer.exe
+            }
+        else
+                {
+                    Set-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "AutoCheckSelect" -Value 0
+                    Stop-Process -n explorer
+                    c:\windows\explorer.exe
+                }
+        }
 
 function RadButton1 {
     if ($RadioButton1.Checked)
@@ -838,6 +850,24 @@ if($value7.UseCompactMode -eq 1)
 }
 
 #========================================================
+#   Unpin/pin all
+#========================================================
+
+$checkbox21= new-object System.Windows.Forms.checkbox
+$checkbox21.Location ='30,110'
+$checkbox21.Size = '250,20'
+$checkbox21.Text = "Item Check Boxes"
+$checkbox21.Add_CheckStateChanged({ICBbutton})
+$Tab2.Controls.Add($checkbox21) 
+
+$value17 = Get-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "AutoCheckSelect"
+if($value17.AutoCheckSelect -eq 1)
+{
+    $checkbox21.Checked = $true 
+}
+
+
+#========================================================
 #   Show File Extensions in Explorer
 #========================================================
 
@@ -1130,79 +1160,83 @@ $Tab5.Controls.Add($versionlabel)
 #$versionlabel.Location = "300,496" #PRE-VERSION
 $versionlabel.Location = "330,496" #VERSION
 
-
-
 #========================================================
 #   Check if OS is Windows 11
 #========================================================
 
-if($value3.TaskbarMn -eq 0)
+if($value4.TaskbarDa -eq 0)
 {
-    $checkbox3.Visible = $true
     $OSlabel.Text = "Windows 11 Detected"
-    $checkbox19.Visible = $false
 }
-elseif($value3.TaskbarMn -eq 1)
+elseif($value4.TaskbarDa -eq 1)
 {
-    $checkbox3.Visible = $true
     $OSlabel.Text = "Windows 11 Detected"
-    $checkbox19.Visible = $false
-}
-else {
-    $checkbox.Visible = $false
-    $checkbox2.Visible = $false
-    $checkbox3.Visible = $false
-    $checkbox4.Visible = $false
-    $checkbox5.Visible = $false
-    $checkbox10.Visible = $false
-    $tbsettingslabel.Visible = $false
-    $checkbox18.Visible = $true
-    $checkbox17.Visible = $true
-    $checkbox16.Visible = $true
-    $checkbox15.Visible = $true
-    $checkbox14.Visible = $true
-    $checkbox13.Visible = $true
-    $checkbox12.Visible = $true
-    $tbsettingslabel2.Visible = $true
 }
 
 #========================================================
 #   Check if OS is Windows 10
 #========================================================
+if($value9.PeopleBand -eq 0)
+{
+    $OSlabel.Text = "Windows 10 Detected"
+    Windows10
+}
+elseif($value9.PeopleBand -eq 1)
+{
+    $OSlabel.Text = "Windows 10 Detected"
+    Windows10
+}
 
-if($value10.PenWorkspaceButtonDesiredVisibility -eq 0)
+
+function Windows10 
 {
-    $checkbox17.Visible = $true
-    $checkbox6.Visible = $false
+    $groupBox.Visable = $false
+    $RadioButton1.Visable = $false
+    $RadioButton2.Visable = $false
+    $RadioButton3.Visable = $false
+    $tbsettingslabel3.Visable = $false
     $checkbox7.Visible = $false
-    $button2.Visible = $false
-    $OSlabel.Text = "Windows 10 Detected"
 }
-elseif($value10.PenWorkspaceButtonDesiredVisibility -eq 1)
-{
-    $checkbox17.Visible = $true
-    $checkbox6.Visible = $false
-    $checkbox7.Visible = $false
-    $button2.Visible = $false
-    $OSlabel.Text = "Windows 10 Detected"
+
+function Windows11 {
+    $checkbox12.Visable = $false
+    $checkbox13.Visable = $false
+    $checkbox14.Visable = $false
+    $checkbox15.Visable = $false
+    $checkbox16.Visable = $false
+    $checkbox17.Visable = $false
+    $checkbox18.Visable = $false
+    
+
 }
-else {
-    $checkbox18.Visible = $false
-    $checkbox17.Visible = $false
-    $checkbox16.Visible = $false
-    $checkbox15.Visible = $false
-    $checkbox14.Visible = $false
-    $checkbox13.Visible = $false
-    $checkbox12.Visible = $false
-    $tbsettingslabel2.Visible = $false
-    $checkbox.Visible = $true
-    $checkbox2.Visible = $true
-    $checkbox3.Visible = $true
-    $checkbox4.Visible = $true
-    $checkbox5.Visible = $true
-    $checkbox10.Visible = $true
-    $tbsettingslabel.Visible = $true
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
