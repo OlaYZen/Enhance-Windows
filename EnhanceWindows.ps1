@@ -1164,17 +1164,13 @@ $versionlabel.Location = "330,496" #VERSION
 
 
 
-function Windows10 
-{
-    $groupBox.Visable = $false
-    $RadioButton1.Visable = $false
-    $RadioButton2.Visable = $false
-    $RadioButton3.Visable = $false
-    $tbsettingslabel3.Visable = $false
-    $checkbox7.Visible = $false
-}
+#========================================================
+#   Check if OS is Windows 11
+#========================================================
 
-function Windows11 {
+if($value4.TaskbarDa -eq 0)
+{
+    $OSlabel.Text = "Windows 11 Detected"
     $checkbox12.Visable = $false
     $checkbox13.Visable = $false
     $checkbox14.Visable = $false
@@ -1183,25 +1179,18 @@ function Windows11 {
     $checkbox17.Visable = $false
     $checkbox18.Visable = $false
     
-
-}
-
-
-
-
-#========================================================
-#   Check if OS is Windows 11
-#========================================================
-
-if($value4.TaskbarDa -eq 0)
-{
-    $OSlabel.Text = "Windows 11 Detected"
-    Windows11
 }
 elseif($value4.TaskbarDa -eq 1)
 {
     $OSlabel.Text = "Windows 11 Detected"
-    Windows11
+    $checkbox12.Visable = $false
+    $checkbox13.Visable = $false
+    $checkbox14.Visable = $false
+    $checkbox15.Visable = $false
+    $checkbox16.Visable = $false
+    $checkbox17.Visable = $false
+    $checkbox18.Visable = $false
+    
 }
 
 #========================================================
@@ -1210,12 +1199,22 @@ elseif($value4.TaskbarDa -eq 1)
 if($value9.PeopleBand -eq 0)
 {
     $OSlabel.Text = "Windows 10 Detected"
-    Windows10
+    $groupBox.Visable = $false
+    $RadioButton1.Visable = $false
+    $RadioButton2.Visable = $false
+    $RadioButton3.Visable = $false
+    $tbsettingslabel3.Visable = $false
+    $checkbox7.Visible = $false
 }
 elseif($value9.PeopleBand -eq 1)
 {
     $OSlabel.Text = "Windows 10 Detected"
-    Windows10
+    $groupBox.Visable = $false
+    $RadioButton1.Visable = $false
+    $RadioButton2.Visable = $false
+    $RadioButton3.Visable = $false
+    $tbsettingslabel3.Visable = $false
+    $checkbox7.Visible = $false
 }
 
 
