@@ -837,7 +837,7 @@ $FormTabControl.Controls.Add($Tab2)
 #========================================================
 
 $checkbox7 = new-object System.Windows.Forms.checkbox
-$checkbox7.Location ='30,90'
+$checkbox7.Location ='30,110'
 $checkbox7.Size = '250,20'
 $checkbox7.Text = "Compact View in Explorer"
 $checkbox7.Add_CheckStateChanged({CompactView})
@@ -854,7 +854,7 @@ if($value30.UseCompactMode -eq 1)
 #========================================================
 
 $checkbox21= new-object System.Windows.Forms.checkbox
-$checkbox21.Location ='30,110'
+$checkbox21.Location ='30,90'
 $checkbox21.Size = '250,20'
 $checkbox21.Text = "Item Check Boxes"
 $checkbox21.Add_CheckStateChanged({ICBbutton})
