@@ -1178,13 +1178,24 @@ if($value4.TaskbarDa -eq 0)
     $checkbox16.Visible = $false
     $checkbox17.Visible = $false
     $checkbox18.Visible = $false
-    
+    $checkbox12.Visible = $false
+    $checkbox14.Visible = $false
+    $checkbox15.Visible = $false
+    $checkbox16.Visible = $false
+    $checkbox17.Visible = $false
+    $checkbox18.Visible = $false
 }
 elseif($value4.TaskbarDa -eq 1)
 {
     $OSlabel.Text = "Windows 11 Detected"
     $checkbox12.Visible = $false
     $checkbox13.Visible = $false
+    $checkbox14.Visible = $false
+    $checkbox15.Visible = $false
+    $checkbox16.Visible = $false
+    $checkbox17.Visible = $false
+    $checkbox18.Visible = $false
+    $checkbox12.Visible = $false
     $checkbox14.Visible = $false
     $checkbox15.Visible = $false
     $checkbox16.Visible = $false
