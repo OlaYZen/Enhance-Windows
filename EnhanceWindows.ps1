@@ -1208,6 +1208,12 @@ if($value9.PeopleBand -eq 0)
     $RadioButton3.Visible = $false
     $tbsettingslabel3.Visible = $false
     $checkbox7.Visible = $false
+    $checkbox.Visible = $false
+    $checkbox2.Visible = $false
+    $checkbox3.Visible = $false
+    $checkbox4.Visible = $false
+    $checkbox5.Visible = $false
+    $checkbox10.Visible = $false
 }
 elseif($value9.PeopleBand -eq 1)
 {
@@ -1218,6 +1224,12 @@ elseif($value9.PeopleBand -eq 1)
     $RadioButton3.Visible = $false
     $tbsettingslabel3.Visible = $false
     $checkbox7.Visible = $false
+    $checkbox.Visible = $false
+    $checkbox2.Visible = $false
+    $checkbox3.Visible = $false
+    $checkbox4.Visible = $false
+    $checkbox5.Visible = $false
+    $checkbox10.Visible = $false
 }
 else {
     
