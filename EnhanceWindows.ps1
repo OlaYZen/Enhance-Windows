@@ -1201,11 +1201,6 @@ else {
     $checkbox12.Visible = $false
     $tbsettingslabel2.Visible = $false
     $checkbox.Visible = $true
-    $tbsettingslabel3.Visible = $true
-    $groupBox.Visible = $true
-    $RadioButton1.Visible = $true
-    $RadioButton2.Visible = $true
-    $RadioButton3.Visible = $true
     $checkbox2.Visible = $true
     $checkbox3.Visible = $true
     $checkbox4.Visible = $true
