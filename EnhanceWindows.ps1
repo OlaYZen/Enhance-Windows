@@ -1160,32 +1160,8 @@ $Tab5.Controls.Add($versionlabel)
 #$versionlabel.Location = "300,496" #PRE-VERSION
 $versionlabel.Location = "330,496" #VERSION
 
-#========================================================
-#   Check if OS is Windows 11
-#========================================================
 
-if($value4.TaskbarDa -eq 0)
-{
-    $OSlabel.Text = "Windows 11 Detected"
-}
-elseif($value4.TaskbarDa -eq 1)
-{
-    $OSlabel.Text = "Windows 11 Detected"
-}
 
-#========================================================
-#   Check if OS is Windows 10
-#========================================================
-if($value9.PeopleBand -eq 0)
-{
-    $OSlabel.Text = "Windows 10 Detected"
-    Windows10
-}
-elseif($value9.PeopleBand -eq 1)
-{
-    $OSlabel.Text = "Windows 10 Detected"
-    Windows10
-}
 
 
 function Windows10 
@@ -1209,6 +1185,41 @@ function Windows11 {
     
 
 }
+
+
+
+
+#========================================================
+#   Check if OS is Windows 11
+#========================================================
+
+if($value4.TaskbarDa -eq 0)
+{
+    $OSlabel.Text = "Windows 11 Detected"
+    Windows11
+}
+elseif($value4.TaskbarDa -eq 1)
+{
+    $OSlabel.Text = "Windows 11 Detected"
+    Windows11
+}
+
+#========================================================
+#   Check if OS is Windows 10
+#========================================================
+if($value9.PeopleBand -eq 0)
+{
+    $OSlabel.Text = "Windows 10 Detected"
+    Windows10
+}
+elseif($value9.PeopleBand -eq 1)
+{
+    $OSlabel.Text = "Windows 10 Detected"
+    Windows10
+}
+
+
+
 
 
 
