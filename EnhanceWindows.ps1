@@ -1157,11 +1157,6 @@ else {
     $checkbox10.Visible = $false
     $tbsettingslabel.Visible = $false
     $checkbox18.Visible = $true
-    $tbsettingslabel3.Visible = $False
-    $groupBox.Visible = $False
-    $RadioButton1.Visible = $False
-    $RadioButton2.Visible = $False
-    $RadioButton3.Visible = $False
     $checkbox17.Visible = $true
     $checkbox16.Visible = $true
     $checkbox15.Visible = $true
@@ -1181,6 +1176,11 @@ if($value10.PenWorkspaceButtonDesiredVisibility -eq 0)
     $checkbox6.Visible = $false
     $checkbox7.Visible = $false
     $button2.Visible = $false
+    $tbsettingslabel3.Visible = $False
+    $groupBox.Visible = $False
+    $RadioButton1.Visible = $False
+    $RadioButton2.Visible = $False
+    $RadioButton3.Visible = $False
     $OSlabel.Text = "Windows 10 Detected"
 }
 elseif($value10.PenWorkspaceButtonDesiredVisibility -eq 1)
@@ -1189,6 +1189,11 @@ elseif($value10.PenWorkspaceButtonDesiredVisibility -eq 1)
     $checkbox6.Visible = $false
     $checkbox7.Visible = $false
     $button2.Visible = $false
+    $tbsettingslabel3.Visible = $False
+    $groupBox.Visible = $False
+    $RadioButton1.Visible = $False
+    $RadioButton2.Visible = $False
+    $RadioButton3.Visible = $False
     $OSlabel.Text = "Windows 10 Detected"
 }
 else {
