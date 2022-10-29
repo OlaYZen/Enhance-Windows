@@ -414,6 +414,34 @@ function DisableAeroShake(){
 
 
 
+function RadButton1 {
+    if ($RadioButton1.Checked)
+        {
+            Set-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "Start_Layout" -Value 0
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
+        }
+}
+
+function RadButton2 {
+    if ($RadioButton2.Checked)
+        {
+            Set-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "Start_Layout" -Value 1
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
+        }
+}
+function RadButton3 {
+    if ($RadioButton3.Checked)
+        {
+            Set-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "Start_Layout" -Value 2
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
+        }
+}
+
+
+
 #=============================================================================================================================
 #    Tab 1 Settings
 #=============================================================================================================================
@@ -545,6 +573,67 @@ if($value2.ShowTaskViewButton -eq 0)
 else {
     $checkBox10.Checked = $false
 }
+
+#========================================================
+#   Start Layout on 22H2 Windows 11
+#========================================================
+
+
+$groupBox = New-Object System.Windows.Forms.GroupBox
+$groupBox.Location ='20,210'
+$groupBox.size = '160,80'
+$groupBox.Text = "Start Layout"
+$Tab1.Controls.Add($groupBox)
+
+$RadioButton1 = New-Object System.Windows.Forms.RadioButton
+$RadioButton1.Location ='10,15'
+$RadioButton1.size = '200,20'
+$RadioButton1.Checked = $false
+$RadioButton1.Text = "Default" 
+$RadioButton1.Add_Click({RadButton1})
+$groupBox.Controls.Add($RadioButton1)
+
+$RadioButton2 = New-Object System.Windows.Forms.RadioButton
+$RadioButton2.Location ='10,35'
+$RadioButton2.size = '200,20'
+$RadioButton2.Checked = $False
+$RadioButton2.Text = "More Pins"
+$RadioButton2.Add_Click({RadButton2})
+$groupBox.Controls.Add($RadioButton2)
+
+$RadioButton3= New-Object System.Windows.Forms.RadioButton
+$RadioButton3.Location ='10,55'
+$RadioButton3.size = '200,20'
+$RadioButton3.Checked = $false
+$RadioButton3.Text = "More Recommendations"
+$RadioButton3.Add_Click({RadButton3})
+$groupBox.Controls.Add($RadioButton3)
+
+$value16 = Get-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "Start_Layout"
+if($value16.Start_Layout -eq 0)
+{
+    $RadioButton1.Checked = $true 
+}
+elseif($value16.Start_Layout -eq 1)
+{
+    $RadioButton2.Checked = $true 
+}
+elseif($value16.Start_Layout -eq 2)
+{
+    $RadioButton3.Checked = $true 
+}
+
+#========================================================
+#    22H2 Start Layout
+#========================================================
+
+$tbsettingslabel3 = New-Object System.Windows.Forms.Label
+$tbsettingslabel3.Location = '5, 170' 
+$tbsettingslabel3.Name = 'tbsettingslabel'
+$tbsettingslabel3.Text = 'Windows 11 Start Menu'
+$tbsettingslabel3.Size = '500, 122'
+$tbsettingslabel3.Font = $LabelFont
+$Tab1.Controls.Add($tbsettingslabel3)
 
 #========================================================
 #   checkbox12 hides Search in win 10
@@ -1068,6 +1157,11 @@ else {
     $checkbox10.Visible = $false
     $tbsettingslabel.Visible = $false
     $checkbox18.Visible = $true
+    $tbsettingslabel3.Visible = $False
+    $groupBox.Visible = $False
+    $RadioButton1.Visible = $False
+    $RadioButton2.Visible = $False
+    $RadioButton3.Visible = $False
     $checkbox17.Visible = $true
     $checkbox16.Visible = $true
     $checkbox15.Visible = $true
@@ -1107,6 +1201,11 @@ else {
     $checkbox12.Visible = $false
     $tbsettingslabel2.Visible = $false
     $checkbox.Visible = $true
+    $tbsettingslabel3.Visible = $true
+    $groupBox.Visible = $true
+    $RadioButton1.Visible = $true
+    $RadioButton2.Visible = $true
+    $RadioButton3.Visible = $true
     $checkbox2.Visible = $true
     $checkbox3.Visible = $true
     $checkbox4.Visible = $true
