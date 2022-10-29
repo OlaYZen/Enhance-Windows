@@ -843,8 +843,8 @@ $checkbox7.Text = "Compact View in Explorer"
 $checkbox7.Add_CheckStateChanged({CompactView})
 $Tab2.Controls.Add($checkbox7) 
 
-$value7 = Get-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "UseCompactMode"
-if($value7.UseCompactMode -eq 1)
+$value30 = Get-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "UseCompactMode"
+if($value30.UseCompactMode -eq 1)
 {
     $checkBox7.Checked = $true
 }
@@ -878,8 +878,8 @@ $checkbox8.Text = "Show File Extensions in Explorer"
 $checkbox8.Add_CheckStateChanged({FileExt})
 $Tab2.Controls.Add($checkbox8) 
 
-$value8 = Get-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "HideFileExt"
-if($value8.HideFileExt -eq 0)
+$value31 = Get-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "HideFileExt"
+if($value31.HideFileExt -eq 0)
 {
     $checkBox8.Checked = $true
 }
@@ -895,8 +895,8 @@ $checkbox9.Text = "Show Hidden Files in Explorer"
 $checkbox9.Add_CheckStateChanged({HiddenFiles})
 $Tab2.Controls.Add($checkbox9) 
 
-$value9 = Get-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "Hidden"
-if($value9.Hidden -eq 1)
+$value32 = Get-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "Hidden"
+if($value32.Hidden -eq 1)
 {
     $checkBox9.Checked = $true
 }
