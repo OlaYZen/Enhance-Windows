@@ -1192,6 +1192,9 @@ elseif($value4.TaskbarDa -eq 1)
     $checkbox18.Visable = $false
     
 }
+else {
+    
+}
 
 #========================================================
 #   Check if OS is Windows 10
@@ -1216,6 +1219,10 @@ elseif($value9.PeopleBand -eq 1)
     $tbsettingslabel3.Visable = $false
     $checkbox7.Visible = $false
 }
+else {
+    
+}
+
 
 
 
