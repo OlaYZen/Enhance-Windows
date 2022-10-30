@@ -460,7 +460,7 @@ function Remweather {
             Stop-Process -n explorer
             c:\windows\explorer.exe
         }
-    if ($checkbox22.Checked)
+    else
     {
             Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Feeds" -Name "ShellFeedsTaskbarViewMode" -Value 0
             Stop-Process -n explorer
