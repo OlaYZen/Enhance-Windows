@@ -453,24 +453,20 @@ function RadButton3 {
 }
 
 
-function Remweather {
-    if ($checkbox22.Checked)
+function Remweather(){
+    if ($checkBox22.Checked)
         {
             Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Feeds" -Name "ShellFeedsTaskbarViewMode" -Value 2
             Stop-Process -n explorer
             c:\windows\explorer.exe
         }
     else
-    {
+        {
             Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Feeds" -Name "ShellFeedsTaskbarViewMode" -Value 0
             Stop-Process -n explorer
             c:\windows\explorer.exe
+        }
     }
-    
-}
-
-
-
 
 
 
