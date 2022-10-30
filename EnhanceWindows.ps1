@@ -784,7 +784,7 @@ $checkbox22.Add_CheckStateChanged({Remweather})
 $Tab1.Controls.Add($checkbox22) 
 
 $value33 = Get-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Feeds" -Name "ShellFeedsTaskbarViewMode"
-if($value33.TipbandDesiredVisibility -eq 2)
+if($value33.ShellFeedsTaskbarViewMode -eq 2)
 {
     $checkbox22.Checked = $true
 }
