@@ -453,6 +453,28 @@ function RadButton3 {
 }
 
 
+function Remweather {
+    if ($checkbox22.Checked)
+        {
+            Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Feeds" -Name "ShellFeedsTaskbarViewMode" -Value 2
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
+        }
+    if ($checkbox22.Checked)
+    {
+            Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Feeds" -Name "ShellFeedsTaskbarViewMode" -Value 0
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
+    }
+    
+}
+
+
+
+
+
+
+
 
 #=============================================================================================================================
 #    Tab 1 Settings
@@ -751,11 +773,28 @@ if($value11.TipbandDesiredVisibility -eq 0)
 }
 
 #========================================================
+#   remove weather
+#========================================================
+
+$checkbox22 = new-object System.Windows.Forms.checkbox
+$checkbox22.Location ='30,170'
+$checkbox22.Size = '250,20'
+$checkbox22.Text = "Remove Weather"
+$checkbox22.Add_CheckStateChanged({Remweather})
+$Tab1.Controls.Add($checkbox22) 
+
+$value33 = Get-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Feeds" -Name "ShellFeedsTaskbarViewMode"
+if($value33.TipbandDesiredVisibility -eq 2)
+{
+    $checkbox22.Checked = $true
+}
+
+#========================================================
 #   Unpin/pin all
 #========================================================
 
 $checkbox18 = new-object System.Windows.Forms.checkbox
-$checkbox18.Location ='30,170'
+$checkbox18.Location ='30,190'
 $checkbox18.Size = '250,20'
 $checkbox18.Text = "Unpin all above"
 $checkbox18.Add_CheckStateChanged({Unpinabovewin10})
@@ -1212,7 +1251,7 @@ else {
 #========================================================
 #   Check if OS is Windows 10
 #========================================================
-if($value9.PeopleBand -eq 0)
+if($value10.PenWorkspaceButtonDesiredVisibility -eq 0)
 {
     $OSlabel.Text = "Windows 10 Detected"
     $groupBox.Visible = $false
@@ -1229,7 +1268,7 @@ if($value9.PeopleBand -eq 0)
     $checkbox6.Visible = $false
     $checkbox10.Visible = $false
 }
-elseif($value9.PeopleBand -eq 1)
+elseif($value10.PenWorkspaceButtonDesiredVisibility -eq 1)
 {
     $OSlabel.Text = "Windows 10 Detected"
     $groupBox.Visible = $false
