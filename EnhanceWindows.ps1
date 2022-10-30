@@ -468,7 +468,7 @@ $FormTabControl.Controls.Add($Tab1)
 #    Version Number
 #========================================================
 
-$version = "Version 1.1.5 (Build 1151.09)"
+$version = "Version 1.1.6 (Build 1160.05)"
 
 #========================================================
 #   Change TaskBar Location to Left
@@ -1101,7 +1101,6 @@ $checkbox11.Checked = $false
 $checkbox11.Add_CheckStateChanged({HideShell})
 $Tab4.Controls.Add($checkbox11) 
 
-
 #========================================================
 #    Powershell Settings Label
 #========================================================
@@ -1129,11 +1128,9 @@ $button5.BackColor = "White"
 $button5.Add_Click({TestButton})
 $Tab4.Controls.Add($button5)
 
-
 #========================================================
 #   OS LABEL
 #========================================================
-
 
 $OSlabel = New-Object System.Windows.Forms.Label
 $OSlabel.Location = "1,496"
@@ -1157,10 +1154,6 @@ $Tab5.Controls.Add($versionlabel)
 
 #$versionlabel.Location = "300,496" #PRE-VERSION
 $versionlabel.Location = "330,496" #VERSION
-
-
-
-
 
 #========================================================
 #   Check if OS is Windows 11
@@ -1210,6 +1203,7 @@ else {
 #========================================================
 #   Check if OS is Windows 10
 #========================================================
+
 if($value10.PenWorkspaceButtonDesiredVisibility -eq 0)
 {
     $OSlabel.Text = "Windows 10 Detected"
@@ -1247,40 +1241,6 @@ elseif($value10.PenWorkspaceButtonDesiredVisibility -eq 1)
 else {
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #========================================================
 #    Adds Custom Icon
