@@ -456,13 +456,13 @@ function RadButton3 {
 function Remweather(){
     if ($checkBox22.Checked)
         {
-            Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Feeds" -Name "ShellFeedsTaskbarViewMode" -Value 2
+            Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Feeds" -Name "ShellFeedsTaskbarViewMode" -Value 0
             Stop-Process -n explorer
             c:\windows\explorer.exe
         }
     else
         {
-            Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Feeds" -Name "ShellFeedsTaskbarViewMode" -Value 0
+            Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Feeds" -Name "ShellFeedsTaskbarViewMode" -Value 2
             Stop-Process -n explorer
             c:\windows\explorer.exe
         }
@@ -780,7 +780,7 @@ $checkbox22.Add_CheckStateChanged({Remweather})
 $Tab1.Controls.Add($checkbox22) 
 
 $value33 = Get-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Feeds" -Name "ShellFeedsTaskbarViewMode"
-if($value33.ShellFeedsTaskbarViewMode -eq 2)
+if($value33.ShellFeedsTaskbarViewMode -eq 0)
 {
     $checkbox22.Checked = $true
 }
