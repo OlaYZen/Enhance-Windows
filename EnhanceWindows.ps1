@@ -468,7 +468,7 @@ $FormTabControl.Controls.Add($Tab1)
 #    Version Number
 #========================================================
 
-$version = "Version 1.1.6 (Build 1160.07)"
+$version = "Version 1.1.6 (Build 1160.08)"
 
 #========================================================
 #   Change TaskBar Location to Left
@@ -1227,7 +1227,7 @@ $checkbox18.Enabled = $false
 $checkbox19.Enabled = $false
 
 #========================================================
-#   Check if OS is Windows 11
+#   Checking if Windows is 10 or 11
 #========================================================
 
 if($value4.TaskbarDa -eq 0)
