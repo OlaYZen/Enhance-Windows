@@ -19,7 +19,7 @@ Open a powershell window , and type:
 ```
 iwr -useb http://enhance.olayzen.lol/ | iex
 ```
-> or Download and run "EnhanceWindows.ps1" with a powershell window
+> or Download and run "EnhanceWindows.ps1" with powershell
 
 ## 💡Features💡
 with this program you could remove or add stuff that is missing from both versions of Windows. Here is a list of what you could do in each operating system. Note that every feature does not crossover from Windows 11 to Windows 10 and vice versa
