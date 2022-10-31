@@ -468,7 +468,7 @@ $FormTabControl.Controls.Add($Tab1)
 #    Version Number
 #========================================================
 
-$version = "Version 1.1.6 (Build 1160.09)"
+$version = "Version 1.1.6 (Build 1160.10)"
 
 #========================================================
 #   Change TaskBar Location to Left
@@ -1323,6 +1323,134 @@ elseif($value9.PeopleBand -eq 0)
     $checkbox19.Enabled = $true    
 }
 elseif($value9.PeopleBand -eq 1)
+{
+    $OSlabel.Text = "Windows 10 Detected"
+    $checkbox12.Visible = $true
+    $checkbox13.Visible = $true
+    $checkbox14.Visible = $true
+    $checkbox15.Visible = $true
+    $checkbox16.Visible = $true
+    $checkbox17.Visible = $true
+    $checkbox18.Visible = $true
+    $checkbox12.Visible = $true
+    $checkbox14.Visible = $true
+    $checkbox15.Visible = $true
+    $checkbox16.Visible = $true
+    $checkbox17.Visible = $true
+    $checkbox18.Visible = $true
+    $checkbox19.Visible = $true
+    $checkbox12.Enabled = $true
+    $checkbox13.Enabled = $true
+    $checkbox14.Enabled = $true
+    $checkbox15.Enabled = $true
+    $checkbox16.Enabled = $true
+    $checkbox17.Enabled = $true
+    $checkbox18.Enabled = $true
+    $checkbox12.Enabled = $true
+    $checkbox14.Enabled = $true
+    $checkbox15.Enabled = $true
+    $checkbox16.Enabled = $true
+    $checkbox17.Enabled = $true
+    $checkbox18.Enabled = $true
+    $checkbox19.Enabled = $true 
+}
+elseif($value10.PenWorkspaceButtonDesiredVisibility -eq 0)
+{
+    $OSlabel.Text = "Windows 10 Detected"
+    $checkbox12.Visible = $true
+    $checkbox13.Visible = $true
+    $checkbox14.Visible = $true
+    $checkbox15.Visible = $true
+    $checkbox16.Visible = $true
+    $checkbox17.Visible = $true
+    $checkbox18.Visible = $true
+    $checkbox12.Visible = $true
+    $checkbox14.Visible = $true
+    $checkbox15.Visible = $true
+    $checkbox16.Visible = $true
+    $checkbox17.Visible = $true
+    $checkbox18.Visible = $true
+    $checkbox19.Visible = $true
+    $checkbox12.Enabled = $true
+    $checkbox13.Enabled = $true
+    $checkbox14.Enabled = $true
+    $checkbox15.Enabled = $true
+    $checkbox16.Enabled = $true
+    $checkbox17.Enabled = $true
+    $checkbox18.Enabled = $true
+    $checkbox12.Enabled = $true
+    $checkbox14.Enabled = $true
+    $checkbox15.Enabled = $true
+    $checkbox16.Enabled = $true
+    $checkbox17.Enabled = $true
+    $checkbox18.Enabled = $true
+    $checkbox19.Enabled = $true 
+}
+elseif($value10.PenWorkspaceButtonDesiredVisibility -eq 1)
+{
+    $OSlabel.Text = "Windows 10 Detected"
+    $checkbox12.Visible = $true
+    $checkbox13.Visible = $true
+    $checkbox14.Visible = $true
+    $checkbox15.Visible = $true
+    $checkbox16.Visible = $true
+    $checkbox17.Visible = $true
+    $checkbox18.Visible = $true
+    $checkbox12.Visible = $true
+    $checkbox14.Visible = $true
+    $checkbox15.Visible = $true
+    $checkbox16.Visible = $true
+    $checkbox17.Visible = $true
+    $checkbox18.Visible = $true
+    $checkbox19.Visible = $true
+    $checkbox12.Enabled = $true
+    $checkbox13.Enabled = $true
+    $checkbox14.Enabled = $true
+    $checkbox15.Enabled = $true
+    $checkbox16.Enabled = $true
+    $checkbox17.Enabled = $true
+    $checkbox18.Enabled = $true
+    $checkbox12.Enabled = $true
+    $checkbox14.Enabled = $true
+    $checkbox15.Enabled = $true
+    $checkbox16.Enabled = $true
+    $checkbox17.Enabled = $true
+    $checkbox18.Enabled = $true
+    $checkbox19.Enabled = $true 
+}
+elseif($value11.TipbandDesiredVisibility -eq 0)
+{
+    $OSlabel.Text = "Windows 10 Detected"
+    $checkbox12.Visible = $true
+    $checkbox13.Visible = $true
+    $checkbox14.Visible = $true
+    $checkbox15.Visible = $true
+    $checkbox16.Visible = $true
+    $checkbox17.Visible = $true
+    $checkbox18.Visible = $true
+    $checkbox12.Visible = $true
+    $checkbox14.Visible = $true
+    $checkbox15.Visible = $true
+    $checkbox16.Visible = $true
+    $checkbox17.Visible = $true
+    $checkbox18.Visible = $true
+    $checkbox19.Visible = $true
+    $checkbox12.Enabled = $true
+    $checkbox13.Enabled = $true
+    $checkbox14.Enabled = $true
+    $checkbox15.Enabled = $true
+    $checkbox16.Enabled = $true
+    $checkbox17.Enabled = $true
+    $checkbox18.Enabled = $true
+    $checkbox12.Enabled = $true
+    $checkbox14.Enabled = $true
+    $checkbox15.Enabled = $true
+    $checkbox16.Enabled = $true
+    $checkbox17.Enabled = $true
+    $checkbox18.Enabled = $true
+    $checkbox19.Enabled = $true 
+}
+elseif($value11.TipbandDesiredVisibility -eq 1)
 {
     $OSlabel.Text = "Windows 10 Detected"
     $checkbox12.Visible = $true
