@@ -411,20 +411,20 @@ function DisableAeroShake(){
             }
     }
     
-    function ICBbutton(){
-        if ($checkBox21.Checked)
-            {
-                Set-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "AutoCheckSelect" -Value 1
-                Stop-Process -n explorer
-                c:\windows\explorer.exe
-            }
-        else
-                {
-                    Set-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "AutoCheckSelect" -Value 0
-                    Stop-Process -n explorer
-                    c:\windows\explorer.exe
-                }
+function ICBbutton(){
+    if ($checkBox21.Checked)
+        {
+            Set-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "AutoCheckSelect" -Value 1
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
         }
+    else
+        {
+            Set-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "AutoCheckSelect" -Value 0
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
+        }
+}
 
 function RadButton1 {
     if ($RadioButton1.Checked)
@@ -468,7 +468,7 @@ $FormTabControl.Controls.Add($Tab1)
 #    Version Number
 #========================================================
 
-$version = "Version 1.1.6 (Build 1160.06)"
+$version = "Version 1.1.6 (Build 1160.07)"
 
 #========================================================
 #   Change TaskBar Location to Left
@@ -587,7 +587,6 @@ else {
 #========================================================
 #   Start Layout on 22H2 Windows 11
 #========================================================
-
 
 $groupBox = New-Object System.Windows.Forms.GroupBox
 $groupBox.Location ='20,210'
@@ -864,7 +863,6 @@ if($value17.AutoCheckSelect -eq 1)
     $checkbox21.Checked = $true 
 }
 
-
 #========================================================
 #   Show File Extensions in Explorer
 #========================================================
@@ -982,7 +980,6 @@ if($value14.DisallowShaking -eq 1)
 {
     $checkbox20.Checked = $true
 }
-
 
 #========================================================
 #    Debloat Windows 11
@@ -1155,40 +1152,79 @@ $Tab5.Controls.Add($versionlabel)
 #$versionlabel.Location = "300,496" #PRE-VERSION
 $versionlabel.Location = "330,496" #VERSION
 
+#========================================================
+#   Invis on Every Single Object to increase performance
+#========================================================
 
+# Windows 11
 
 $groupBox.Visible = $false
-    $RadioButton1.Visible = $false
-    $RadioButton2.Visible = $false
-    $RadioButton3.Visible = $false
-    $tbsettingslabel3.Visible = $false
-    $checkbox7.Visible = $false
-    $checkbox.Visible = $false
-    $checkbox2.Visible = $false
-    $checkbox3.Visible = $false
-    $checkbox4.Visible = $false
-    $checkbox5.Visible = $false
-    $checkbox6.Visible = $false
-    $checkbox10.Visible = $false
-    $checkbox12.Visible = $false
-    $checkbox13.Visible = $false
-    $checkbox14.Visible = $false
-    $checkbox15.Visible = $false
-    $checkbox16.Visible = $false
-    $checkbox17.Visible = $false
-    $checkbox18.Visible = $false
-    $checkbox12.Visible = $false
-    $checkbox14.Visible = $false
-    $checkbox15.Visible = $false
-    $checkbox16.Visible = $false
-    $checkbox17.Visible = $false
-    $checkbox18.Visible = $false
-    $checkbox19.Visible = $false
+$RadioButton1.Visible = $false
+$RadioButton2.Visible = $false
+$RadioButton3.Visible = $false
+$tbsettingslabel3.Visible = $false
+$checkbox7.Visible = $false
+$checkbox.Visible = $false
+$checkbox2.Visible = $false
+$checkbox3.Visible = $false
+$checkbox4.Visible = $false
+$checkbox5.Visible = $false
+$checkbox6.Visible = $false
+$checkbox10.Visible = $false
 
+# Windows 10
 
+$checkbox12.Visible = $false
+$checkbox13.Visible = $false
+$checkbox14.Visible = $false
+$checkbox15.Visible = $false
+$checkbox16.Visible = $false
+$checkbox17.Visible = $false
+$checkbox18.Visible = $false
+$checkbox12.Visible = $false
+$checkbox14.Visible = $false
+$checkbox15.Visible = $false
+$checkbox16.Visible = $false
+$checkbox17.Visible = $false
+$checkbox18.Visible = $false
+$checkbox19.Visible = $false
 
+#========================================================
+#   Disable Every Single Object to increase performance
+#========================================================
 
+# Windows 11
 
+$groupBox.Enabled = $false
+$RadioButton1.Enabled = $false
+$RadioButton2.Enabled = $false
+$RadioButton3.Enabled = $false
+$tbsettingslabel3.Enabled = $false
+$checkbox7.Enabled = $false
+$checkbox.Enabled = $false
+$checkbox2.Enabled = $false
+$checkbox3.Enabled = $false
+$checkbox4.Enabled = $false
+$checkbox5.Enabled = $false
+$checkbox6.Enabled = $false
+$checkbox10.Enabled = $false
+
+# Windows 10
+
+$checkbox12.Enabled = $false
+$checkbox13.Enabled = $false
+$checkbox14.Enabled = $false
+$checkbox15.Enabled = $false
+$checkbox16.Enabled = $false
+$checkbox17.Enabled = $false
+$checkbox18.Enabled = $false
+$checkbox12.Enabled = $false
+$checkbox14.Enabled = $false
+$checkbox15.Enabled = $false
+$checkbox16.Enabled = $false
+$checkbox17.Enabled = $false
+$checkbox18.Enabled = $false
+$checkbox19.Enabled = $false
 
 #========================================================
 #   Check if OS is Windows 11
@@ -1209,16 +1245,24 @@ if($value4.TaskbarDa -eq 0)
     $checkbox4.Visible = $true
     $checkbox5.Visible = $true
     $checkbox6.Visible = $true
-    $checkbox10.Visible = $true  
+    $checkbox10.Visible = $true
+    $groupBox.Enabled = $true
+    $RadioButton1.Enabled = $true
+    $RadioButton2.Enabled = $true
+    $RadioButton3.Enabled = $true
+    $tbsettingslabel3.Enabled = $true
+    $checkbox7.Enabled = $true
+    $checkbox.Enabled = $true
+    $checkbox2.Enabled = $true
+    $checkbox3.Enabled = $true
+    $checkbox4.Enabled = $true
+    $checkbox5.Enabled = $true
+    $checkbox6.Enabled = $true
+    $checkbox10.Enabled = $true 
 }
 elseif($value4.TaskbarDa -eq 1)
 {
     $OSlabel.Text = "Windows 11 Detected"
-    
-    
-
-
-
     $groupBox.Visible = $true
     $RadioButton1.Visible = $true
     $RadioButton2.Visible = $true
@@ -1231,7 +1275,20 @@ elseif($value4.TaskbarDa -eq 1)
     $checkbox4.Visible = $true
     $checkbox5.Visible = $true
     $checkbox6.Visible = $true
-    $checkbox10.Visible = $true    
+    $checkbox10.Visible = $true
+    $groupBox.Enabled = $true
+    $RadioButton1.Enabled = $true
+    $RadioButton2.Enabled = $true
+    $RadioButton3.Enabled = $true
+    $tbsettingslabel3.Enabled = $true
+    $checkbox7.Enabled = $true
+    $checkbox.Enabled = $true
+    $checkbox2.Enabled = $true
+    $checkbox3.Enabled = $true
+    $checkbox4.Enabled = $true
+    $checkbox5.Enabled = $true
+    $checkbox6.Enabled = $true
+    $checkbox10.Enabled = $true    
 }
 else {
     
@@ -1244,7 +1301,6 @@ else {
 if($value10.PenWorkspaceButtonDesiredVisibility -eq 0)
 {
     $OSlabel.Text = "Windows 10 Detected"
-    
     $checkbox12.Visible = $true
     $checkbox13.Visible = $true
     $checkbox14.Visible = $true
@@ -1258,7 +1314,21 @@ if($value10.PenWorkspaceButtonDesiredVisibility -eq 0)
     $checkbox16.Visible = $true
     $checkbox17.Visible = $true
     $checkbox18.Visible = $true
-    $checkbox19.Visible = $true    
+    $checkbox19.Visible = $true
+    $checkbox12.Enabled = $true
+    $checkbox13.Enabled = $true
+    $checkbox14.Enabled = $true
+    $checkbox15.Enabled = $true
+    $checkbox16.Enabled = $true
+    $checkbox17.Enabled = $true
+    $checkbox18.Enabled = $true
+    $checkbox12.Enabled = $true
+    $checkbox14.Enabled = $true
+    $checkbox15.Enabled = $true
+    $checkbox16.Enabled = $true
+    $checkbox17.Enabled = $true
+    $checkbox18.Enabled = $true
+    $checkbox19.Enabled = $true    
 }
 elseif($value10.PenWorkspaceButtonDesiredVisibility -eq 1)
 {
@@ -1277,6 +1347,20 @@ elseif($value10.PenWorkspaceButtonDesiredVisibility -eq 1)
     $checkbox17.Visible = $true
     $checkbox18.Visible = $true
     $checkbox19.Visible = $true
+    $checkbox12.Enabled = $true
+    $checkbox13.Enabled = $true
+    $checkbox14.Enabled = $true
+    $checkbox15.Enabled = $true
+    $checkbox16.Enabled = $true
+    $checkbox17.Enabled = $true
+    $checkbox18.Enabled = $true
+    $checkbox12.Enabled = $true
+    $checkbox14.Enabled = $true
+    $checkbox15.Enabled = $true
+    $checkbox16.Enabled = $true
+    $checkbox17.Enabled = $true
+    $checkbox18.Enabled = $true
+    $checkbox19.Enabled = $true 
 }
 else {
     
