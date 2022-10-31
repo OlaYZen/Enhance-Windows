@@ -1096,6 +1096,7 @@ $checkbox11.Size = '250,20'
 $checkbox11.Text = "Hide Console"
 $checkbox11.Checked = $true
 $checkbox11.Add_CheckStateChanged({HideShell})
+powershell.exe -WindowStyle Hidden -file > $null
 $Tab4.Controls.Add($checkbox11) 
 
 #========================================================
