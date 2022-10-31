@@ -1290,15 +1290,7 @@ elseif($value4.TaskbarDa -eq 1)
     $checkbox6.Enabled = $true
     $checkbox10.Enabled = $true    
 }
-else {
-    
-}
-
-#========================================================
-#   Check if OS is Windows 10
-#========================================================
-
-if($value10.PenWorkspaceButtonDesiredVisibility -eq 0)
+elseif($value10.PenWorkspaceButtonDesiredVisibility -eq 0)
 {
     $OSlabel.Text = "Windows 10 Detected"
     $checkbox12.Visible = $true
@@ -1363,7 +1355,7 @@ elseif($value10.PenWorkspaceButtonDesiredVisibility -eq 1)
     $checkbox19.Enabled = $true 
 }
 else {
-    
+    $OSlabel.Text = "OS NOT DETECTED"
 }
 
 #========================================================
