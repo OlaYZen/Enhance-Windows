@@ -468,7 +468,7 @@ $FormTabControl.Controls.Add($Tab1)
 #    Version Number
 #========================================================
 
-$version = "Version 1.1.6 (Build 1160.10)"
+$version = "Version 1.1.6 (Build 1160.11)"
 
 #========================================================
 #   Change TaskBar Location to Left
