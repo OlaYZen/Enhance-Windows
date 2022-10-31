@@ -15,11 +15,11 @@ This script Enhances both Windows 10 and 11
 ---
 ## ⭐**How to start the program**⭐
 
-Open a [Elevated Windows Powershell Window](https://docs.microsoft.com/en-us/powershell/scripting/windows-powershell/starting-windows-powershell?view=powershell-7.2#with-administrative-privileges-run-as-administrator) , and type: 
+Open a powershell window , and type: 
 ```
 iwr -useb http://enhance.olayzen.lol/ | iex
 ```
-> or Download and run "EnhanceWindows.ps1" with an [elevated windows powershell window](https://docs.microsoft.com/en-us/powershell/scripting/windows-powershell/starting-windows-powershell?view=powershell-7.2#with-administrative-privileges-run-as-administrator)
+> or Download and run "EnhanceWindows.ps1" with a powershell window
 
 ## 💡Features💡
 with this program you could remove or add stuff that is missing from both versions of Windows. Here is a list of what you could do in each operating system. Note that every feature does not crossover from Windows 11 to Windows 10 and vice versa
