@@ -468,7 +468,7 @@ $FormTabControl.Controls.Add($Tab1)
 #    Version Number
 #========================================================
 
-$version = "Version 1.1.6 (Build 1160.08)"
+$version = "Version 1.1.6 (Build 1160.09)"
 
 #========================================================
 #   Change TaskBar Location to Left
@@ -1290,7 +1290,7 @@ elseif($value4.TaskbarDa -eq 1)
     $checkbox6.Enabled = $true
     $checkbox10.Enabled = $true    
 }
-elseif($value10.PenWorkspaceButtonDesiredVisibility -eq 0)
+elseif($value9.PeopleBand -eq 0)
 {
     $OSlabel.Text = "Windows 10 Detected"
     $checkbox12.Visible = $true
@@ -1322,7 +1322,7 @@ elseif($value10.PenWorkspaceButtonDesiredVisibility -eq 0)
     $checkbox18.Enabled = $true
     $checkbox19.Enabled = $true    
 }
-elseif($value10.PenWorkspaceButtonDesiredVisibility -eq 1)
+elseif($value9.PeopleBand -eq 1)
 {
     $OSlabel.Text = "Windows 10 Detected"
     $checkbox12.Visible = $true
