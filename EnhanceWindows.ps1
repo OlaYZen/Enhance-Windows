@@ -350,6 +350,67 @@ function DebloatWin(){
 iwr -useb https://christitus.com/win | iex
 }
 
+$value13 = Get-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowSecondsInSystemClock"
+if($value13.ShowSecondsInSystemClock -eq 0)
+{
+    write-host "ShowSecondsInSystemClock Exists"
+    
+}
+elseif($value13.ShowSecondsInSystemClock -eq 1)
+{
+    write-host "ShowSecondsInSystemClock Exists"
+}
+else 
+{
+    reg.exe add HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\ /v  ShowSecondsInSystemClock /t  REG_DWORD /d  0
+}
+
+$value15 = Get-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "DisallowShaking"
+if($value15.DisallowShaking -eq 0)
+{
+    write-host "DisallowShaking Exists"
+    
+}
+elseif($value15.DisallowShaking -eq 1)
+{
+    write-host "DisallowShaking Exists"
+}
+else 
+{
+    reg.exe add HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\ /v  DisallowShaking /t  REG_DWORD /d  0
+}
+
+function ClockSecs(){
+if ($checkBox19.Checked)
+    {
+        Set-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowSecondsInSystemClock" -Value 1
+        Stop-Process -n explorer
+        c:\windows\explorer.exe
+    }
+else
+        {
+            Set-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowSecondsInSystemClock" -Value 0
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
+        }
+}
+function DisableAeroShake(){
+    if ($checkBox20.Checked)
+        {
+            Set-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "DisallowShaking" -Value 1
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
+        }
+    else
+            {
+                Set-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "DisallowShaking" -Value 0
+                Stop-Process -n explorer
+                c:\windows\explorer.exe
+            }
+    }
+    
+
+
 
 #=============================================================================================================================
 #    Tab 1 Settings
@@ -367,7 +428,7 @@ $FormTabControl.Controls.Add($Tab1)
 #    Version Number
 #========================================================
 
-$version = "Version 1.1.4"
+$version = "Version 1.1.5 (Build 1151.08)"
 
 #========================================================
 #   Change TaskBar Location to Left
@@ -627,22 +688,11 @@ else {
 
 $tbsettingslabel2 = New-Object System.Windows.Forms.Label
 $tbsettingslabel2.Location = '5, 5' 
-$tbsettingslabel2.Name = 'tbsettingslabel Win10'
-$tbsettingslabel2.Text = 'Taskbar Settings Win10'
+$tbsettingslabel2.Name = 'tbsettingslabel'
+$tbsettingslabel2.Text = 'Taskbar Settings'
 $tbsettingslabel2.Size = '500, 122'
 $tbsettingslabel2.Font = $LabelFont
 $Tab1.Controls.Add($tbsettingslabel2)
-
-#========================================================
-#    Tab 1 Version Label
-#========================================================
-
-$versionlabel = New-Object System.Windows.Forms.Label
-$versionlabel.Location = "415,500"
-$versionlabel.Name = 'Version'
-$versionlabel.Text = $version
-$versionlabel.Size = '420, 14'
-$Tab1.Controls.Add($versionlabel) 
 
 #========================================================
 #    Taskbar Settings Label
@@ -650,8 +700,8 @@ $Tab1.Controls.Add($versionlabel)
 
 $tbsettingslabel = New-Object System.Windows.Forms.Label
 $tbsettingslabel.Location = '5, 5' 
-$tbsettingslabel.Name = 'tbsettingslabel Win11'
-$tbsettingslabel.Text = 'Taskbar Settings Win11'
+$tbsettingslabel.Name = 'tbsettingslabel'
+$tbsettingslabel.Text = 'Taskbar Settings'
 $tbsettingslabel.Size = '500, 122'
 $tbsettingslabel.Font = $LabelFont
 $Tab1.Controls.Add($tbsettingslabel)
@@ -742,17 +792,6 @@ $label.Size = '380, 16'
 $Tab2.Controls.Add($label)
 
 #========================================================
-#    Tab 2 Version Label
-#========================================================
-
-$versionlabel2 = New-Object System.Windows.Forms.Label
-$versionlabel2.Location = "415,500"
-$versionlabel2.Name = 'Version'
-$versionlabel2.Text = $version
-$versionlabel2.Size = '420, 14'
-$Tab2.Controls.Add($versionlabel2)
-
-#========================================================
 #    Explorer Settings Label
 #========================================================
 
@@ -792,12 +831,47 @@ if(Test-Path 'HKCU:\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2
 }
 
 #========================================================
+#   Taskbar Clock Display Seconds
+#========================================================
+
+$checkbox19 = new-object System.Windows.Forms.checkbox
+$checkbox19.Location ='30,50'
+$checkbox19.Size = '250,20'
+$checkbox19.Text = "Taskbar Clock Display Seconds"
+$checkbox19.Add_CheckStateChanged({ClockSecs})
+$Tab3.Controls.Add($checkbox19) 
+
+$value12 = Get-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowSecondsInSystemClock"
+if($value12.ShowSecondsInSystemClock -eq 1)
+{
+    $checkbox19.Checked = $true
+}
+
+#========================================================
+#   Disable Aero Shake
+#========================================================
+
+$checkbox20 = new-object System.Windows.Forms.checkbox
+$checkbox20.Location ='30,70'
+$checkbox20.Size = '250,20'
+$checkbox20.Text = "Disable Aero Shake"
+$checkbox20.Add_CheckStateChanged({DisableAeroShake})
+$Tab3.Controls.Add($checkbox20) 
+
+$value14 = Get-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "DisallowShaking"
+if($value14.DisallowShaking -eq 1)
+{
+    $checkbox20.Checked = $true
+}
+
+
+#========================================================
 #    Debloat Windows 11
 #========================================================
 
 [System.Windows.Forms.Application]::EnableVisualStyles()
 $button = New-Object System.Windows.Forms.Button
-$button.Location ='30,70'
+$button.Location ='30,90'
 $button.Size = '145, 35'
 $button.Name = "Debloat Windows"
 $button.Text = "Debloat Windows"
@@ -811,7 +885,7 @@ $Tab3.Controls.Add($button)
 
 [System.Windows.Forms.Application]::EnableVisualStyles()
 $button2 = New-Object System.Windows.Forms.Button
-$button2.Location ='30,190'
+$button2.Location ='30,210'
 $button2.Size = '145, 55'
 $button2.Name = "Enable Tabbed Explorer before release"
 $button2.Text = "Enable Tabbed Explorer before release"
@@ -825,7 +899,7 @@ $Tab3.Controls.Add($button2)
 
 [System.Windows.Forms.Application]::EnableVisualStyles()
 $button3 = New-Object System.Windows.Forms.Button
-$button3.Location ='30,110'
+$button3.Location ='30,130'
 $button3.Size = '145, 35'
 $button3.Name = "Install Apps"
 $button3.Text = "Install Applications"
@@ -839,24 +913,13 @@ $Tab3.Controls.Add($button3)
 
 [System.Windows.Forms.Application]::EnableVisualStyles()
 $button4 = New-Object System.Windows.Forms.Button
-$button4.Location ='30,150'
+$button4.Location ='30,170'
 $button4.Size = '145, 35'
 $button4.Name = "Update Windows"
 $button4.Text = "Update Windows"
 $button4.BackColor = "White"
 $button4.Add_Click({UpdWin})
 $Tab3.Controls.Add($button4)
-
-#========================================================
-#    Tab 3 Version Label
-#========================================================
-
-$versionlabel3 = New-Object System.Windows.Forms.Label
-$versionlabel3.Location = "415,500"
-$versionlabel3.Name = 'Version'
-$versionlabel3.Text = $version
-$versionlabel3.Size = '420, 14'
-$Tab3.Controls.Add($versionlabel3)
 
 #========================================================
 #    Windows Settings Label
@@ -882,6 +945,31 @@ $Tab4.Text = "Powershell Settings"
 $Tab4.TabIndex = 2
 $FormTabControl.Controls.Add($Tab4)
 
+#=============================================================================================================================
+#    Tab 5 Settings
+#=============================================================================================================================
+
+$Tab5 = New-object System.Windows.Forms.Tabpage
+$Tab5.DataBindings.DefaultDataSourceUpdateMode = 0 
+$Tab5.UseVisualStyleBackColor = $True 
+$Tab5.Name = "Version" 
+$Tab5.Text = "Version"
+$Tab5.TabIndex = 2
+$FormTabControl.Controls.Add($Tab5)
+
+
+#========================================================
+#    Version Label
+#========================================================
+
+$versionlabeltab5 = New-Object System.Windows.Forms.Label
+$versionlabeltab5.Location = '5, 5' 
+$versionlabeltab5.Name = 'versionlabeltab5'
+$versionlabeltab5.Text = 'Version'
+$versionlabeltab5.Size = '422, 122'
+$versionlabeltab5.Font = $LabelFont
+$Tab5.Controls.Add($versionlabeltab5)
+
 #========================================================
 #   checkbox11 hides PowerShell
 #========================================================
@@ -893,6 +981,19 @@ $checkbox11.Text = "Hide Console"
 $checkbox11.Checked = $false
 $checkbox11.Add_CheckStateChanged({HideShell})
 $Tab4.Controls.Add($checkbox11) 
+
+
+#========================================================
+#    Powershell Settings Label
+#========================================================
+
+$pssettingslabel = New-Object System.Windows.Forms.Label
+$pssettingslabel.Location = '5, 5' 
+$pssettingslabel.Name = 'pssettingslabel'
+$pssettingslabel.Text = 'Powershell Settings'
+$pssettingslabel.Size = '422, 122'
+$pssettingslabel.Font = $LabelFont
+$Tab4.Controls.Add($pssettingslabel)
 
 #========================================================
 #    Test Button
@@ -909,28 +1010,34 @@ $button5.BackColor = "White"
 $button5.Add_Click({TestButton})
 $Tab4.Controls.Add($button5)
 
-#========================================================
-#    Tab 4 Version Label
-#========================================================
-
-$versionlabel4 = New-Object System.Windows.Forms.Label
-$versionlabel4.Location = "415,500"
-$versionlabel4.Name = 'Version'
-$versionlabel4.Text = $version
-$versionlabel4.Size = '420, 14'
-$Tab4.Controls.Add($versionlabel4) 
 
 #========================================================
-#    Powershell Settings Label
+#   OS LABEL
 #========================================================
 
-$pssettingslabel = New-Object System.Windows.Forms.Label
-$pssettingslabel.Location = '5, 5' 
-$pssettingslabel.Name = 'pssettingslabel'
-$pssettingslabel.Text = 'Powershell Settings'
-$pssettingslabel.Size = '422, 122'
-$pssettingslabel.Font = $LabelFont
-$Tab4.Controls.Add($pssettingslabel)
+
+$OSlabel = New-Object System.Windows.Forms.Label
+$OSlabel.Location = "1,496"
+$OSlabel.Name = 'Version'
+$OSlabel.Size = '300, 14'
+$Tab5.Controls.Add($OSlabel) 
+
+#========================================================
+#   Version Label
+#========================================================
+
+$versionlabel = New-Object System.Windows.Forms.Label
+$versionlabel.Name = 'Version'
+$versionlabel.Text = $version
+$versionlabel.Size = '420, 14'
+$Tab5.Controls.Add($versionlabel) 
+
+#========================================================
+#   Version Label Location
+#========================================================
+
+#$versionlabel.Location = "300,496" #PRE-VERSION
+$versionlabel.Location = "330,496" #VERSION
 
 
 
@@ -941,10 +1048,14 @@ $Tab4.Controls.Add($pssettingslabel)
 if($value3.TaskbarMn -eq 0)
 {
     $checkbox3.Visible = $true
+    $OSlabel.Text = "Windows 11 Detected"
+    $checkbox19.Visible = $false
 }
 elseif($value3.TaskbarMn -eq 1)
 {
     $checkbox3.Visible = $true
+    $OSlabel.Text = "Windows 11 Detected"
+    $checkbox19.Visible = $false
 }
 else {
     $checkbox.Visible = $false
@@ -974,6 +1085,7 @@ if($value10.PenWorkspaceButtonDesiredVisibility -eq 0)
     $checkbox6.Visible = $false
     $checkbox7.Visible = $false
     $button2.Visible = $false
+    $OSlabel.Text = "Windows 10 Detected"
 }
 elseif($value10.PenWorkspaceButtonDesiredVisibility -eq 1)
 {
@@ -981,6 +1093,7 @@ elseif($value10.PenWorkspaceButtonDesiredVisibility -eq 1)
     $checkbox6.Visible = $false
     $checkbox7.Visible = $false
     $button2.Visible = $false
+    $OSlabel.Text = "Windows 10 Detected"
 }
 else {
     $checkbox18.Visible = $false
