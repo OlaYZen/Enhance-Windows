@@ -40,6 +40,7 @@ with this program you could remove or add stuff that is missing from both versio
  <summary><b>Windows 11 Features</b></summary>
 
     - Windows 10 Right Click
+    - Windows 11 Start menu adjustments
     - Fix Taskbar pinned apps and location
     - Windows Explorer settings
     - Debloat Windows 11
