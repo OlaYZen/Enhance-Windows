@@ -1094,7 +1094,7 @@ $checkbox11 = new-object System.Windows.Forms.checkbox
 $checkbox11.Location ='30,50'
 $checkbox11.Size = '250,20'
 $checkbox11.Text = "Hide Console"
-$checkbox11.Checked = $false
+$checkbox11.Checked = $true
 $checkbox11.Add_CheckStateChanged({HideShell})
 $Tab4.Controls.Add($checkbox11) 
 
