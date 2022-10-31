@@ -468,7 +468,7 @@ $FormTabControl.Controls.Add($Tab1)
 #    Version Number
 #========================================================
 
-$version = "Version 1.1.6 (Build 1160.05)"
+$version = "Version 1.1.6 (Build 1160.06)"
 
 #========================================================
 #   Change TaskBar Location to Left
@@ -1155,6 +1155,41 @@ $Tab5.Controls.Add($versionlabel)
 #$versionlabel.Location = "300,496" #PRE-VERSION
 $versionlabel.Location = "330,496" #VERSION
 
+
+
+$groupBox.Visible = $false
+    $RadioButton1.Visible = $false
+    $RadioButton2.Visible = $false
+    $RadioButton3.Visible = $false
+    $tbsettingslabel3.Visible = $false
+    $checkbox7.Visible = $false
+    $checkbox.Visible = $false
+    $checkbox2.Visible = $false
+    $checkbox3.Visible = $false
+    $checkbox4.Visible = $false
+    $checkbox5.Visible = $false
+    $checkbox6.Visible = $false
+    $checkbox10.Visible = $false
+    $checkbox12.Visible = $false
+    $checkbox13.Visible = $false
+    $checkbox14.Visible = $false
+    $checkbox15.Visible = $false
+    $checkbox16.Visible = $false
+    $checkbox17.Visible = $false
+    $checkbox18.Visible = $false
+    $checkbox12.Visible = $false
+    $checkbox14.Visible = $false
+    $checkbox15.Visible = $false
+    $checkbox16.Visible = $false
+    $checkbox17.Visible = $false
+    $checkbox18.Visible = $false
+    $checkbox19.Visible = $false
+
+
+
+
+
+
 #========================================================
 #   Check if OS is Windows 11
 #========================================================
@@ -1162,39 +1197,41 @@ $versionlabel.Location = "330,496" #VERSION
 if($value4.TaskbarDa -eq 0)
 {
     $OSlabel.Text = "Windows 11 Detected"
-    $checkbox12.Visible = $false
-    $checkbox13.Visible = $false
-    $checkbox14.Visible = $false
-    $checkbox15.Visible = $false
-    $checkbox16.Visible = $false
-    $checkbox17.Visible = $false
-    $checkbox18.Visible = $false
-    $checkbox12.Visible = $false
-    $checkbox14.Visible = $false
-    $checkbox15.Visible = $false
-    $checkbox16.Visible = $false
-    $checkbox17.Visible = $false
-    $checkbox18.Visible = $false
-    $checkbox19.Visible = $false
+    $groupBox.Visible = $true
+    $RadioButton1.Visible = $true
+    $RadioButton2.Visible = $true
+    $RadioButton3.Visible = $true
+    $tbsettingslabel3.Visible = $true
+    $checkbox7.Visible = $true
+    $checkbox.Visible = $true
+    $checkbox2.Visible = $true
+    $checkbox3.Visible = $true
+    $checkbox4.Visible = $true
+    $checkbox5.Visible = $true
+    $checkbox6.Visible = $true
+    $checkbox10.Visible = $true  
 }
 elseif($value4.TaskbarDa -eq 1)
 {
     $OSlabel.Text = "Windows 11 Detected"
-    $checkbox12.Visible = $false
-    $checkbox13.Visible = $false
-    $checkbox14.Visible = $false
-    $checkbox15.Visible = $false
-    $checkbox16.Visible = $false
-    $checkbox17.Visible = $false
-    $checkbox18.Visible = $false
-    $checkbox12.Visible = $false
-    $checkbox14.Visible = $false
-    $checkbox15.Visible = $false
-    $checkbox16.Visible = $false
-    $checkbox17.Visible = $false
-    $checkbox18.Visible = $false
-    $checkbox19.Visible = $false
     
+    
+
+
+
+    $groupBox.Visible = $true
+    $RadioButton1.Visible = $true
+    $RadioButton2.Visible = $true
+    $RadioButton3.Visible = $true
+    $tbsettingslabel3.Visible = $true
+    $checkbox7.Visible = $true
+    $checkbox.Visible = $true
+    $checkbox2.Visible = $true
+    $checkbox3.Visible = $true
+    $checkbox4.Visible = $true
+    $checkbox5.Visible = $true
+    $checkbox6.Visible = $true
+    $checkbox10.Visible = $true    
 }
 else {
     
@@ -1207,36 +1244,39 @@ else {
 if($value10.PenWorkspaceButtonDesiredVisibility -eq 0)
 {
     $OSlabel.Text = "Windows 10 Detected"
-    $groupBox.Visible = $false
-    $RadioButton1.Visible = $false
-    $RadioButton2.Visible = $false
-    $RadioButton3.Visible = $false
-    $tbsettingslabel3.Visible = $false
-    $checkbox7.Visible = $false
-    $checkbox.Visible = $false
-    $checkbox2.Visible = $false
-    $checkbox3.Visible = $false
-    $checkbox4.Visible = $false
-    $checkbox5.Visible = $false
-    $checkbox6.Visible = $false
-    $checkbox10.Visible = $false
+    
+    $checkbox12.Visible = $true
+    $checkbox13.Visible = $true
+    $checkbox14.Visible = $true
+    $checkbox15.Visible = $true
+    $checkbox16.Visible = $true
+    $checkbox17.Visible = $true
+    $checkbox18.Visible = $true
+    $checkbox12.Visible = $true
+    $checkbox14.Visible = $true
+    $checkbox15.Visible = $true
+    $checkbox16.Visible = $true
+    $checkbox17.Visible = $true
+    $checkbox18.Visible = $true
+    $checkbox19.Visible = $true    
 }
 elseif($value10.PenWorkspaceButtonDesiredVisibility -eq 1)
 {
     $OSlabel.Text = "Windows 10 Detected"
-    $groupBox.Visible = $false
-    $RadioButton1.Visible = $false
-    $RadioButton2.Visible = $false
-    $RadioButton3.Visible = $false
-    $tbsettingslabel3.Visible = $false
-    $checkbox7.Visible = $false
-    $checkbox.Visible = $false
-    $checkbox2.Visible = $false
-    $checkbox3.Visible = $false
-    $checkbox4.Visible = $false
-    $checkbox5.Visible = $false
-    $checkbox6.Visible = $false
-    $checkbox10.Visible = $false
+    $checkbox12.Visible = $true
+    $checkbox13.Visible = $true
+    $checkbox14.Visible = $true
+    $checkbox15.Visible = $true
+    $checkbox16.Visible = $true
+    $checkbox17.Visible = $true
+    $checkbox18.Visible = $true
+    $checkbox12.Visible = $true
+    $checkbox14.Visible = $true
+    $checkbox15.Visible = $true
+    $checkbox16.Visible = $true
+    $checkbox17.Visible = $true
+    $checkbox18.Visible = $true
+    $checkbox19.Visible = $true
 }
 else {
     
