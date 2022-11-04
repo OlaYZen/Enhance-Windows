@@ -393,7 +393,20 @@ function DisableAeroShake(){
     }
 
 
-
+function ClockSecs(){
+if ($WPFClockDisplay.IsChecked)
+    {
+        Set-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowSecondsInSystemClock" -Value 1
+        Stop-Process -n explorer
+        c:\windows\explorer.exe
+    }
+else
+        {
+            Set-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowSecondsInSystemClock" -Value 0
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
+        }
+}
 
 
 $WPFUnpin_Search.Add_Checked{RemSearchwin10}
@@ -485,6 +498,16 @@ $value5 = Get-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersio
 if($value5.SearchboxTaskbarMode -eq 0)
 {
     $WPFUnpin_Search11.IsChecked = $true
+}
+
+
+$WPFClockDisplay.Add_Checked({ClockSecs})
+$WPFClockDisplay.Add_UnChecked({ClockSecs}) 
+
+$value12 = Get-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowSecondsInSystemClock"
+if($value12.ShowSecondsInSystemClock -eq 1)
+{
+    $WPFClockDisplay.IsChecked = $true
 }
 
 
