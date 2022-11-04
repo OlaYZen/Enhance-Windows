@@ -1,0 +1,72 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Enhance Windows" Height="591" Width="464">
+    <Grid>
+        <TabControl>
+            <TabItem x:Name="Tab1" Header="Taskbar Settings">
+                <Grid Background="White">
+                    <Label x:Name="Label1" Content="Taskbar Settings" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="30" FontWeight="Bold"/>
+                    <CheckBox x:Name="Unpin_Search" Content="Unpin Search" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top" IsChecked="False" ToolTip="Testingers"/>
+                    <CheckBox x:Name="Unpin_Task_View" Content="Unpin Task View" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" IsChecked="False"/>
+                    <CheckBox x:Name="Unpin_Cortana" Content="Unpin Cortana" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" IsChecked="False"/>
+                    <CheckBox x:Name="Unpin_People" Content="Unpin People" HorizontalAlignment="Left" Margin="10,125,0,0" VerticalAlignment="Top" IsChecked="False"/>
+                    <CheckBox x:Name="Unpin_Ink_Workspace" Content="Unpin Ink Workspace" HorizontalAlignment="Left" Margin="10,145,0,0" VerticalAlignment="Top" IsChecked="False"/>
+                    <CheckBox x:Name="Unpin_Touch_Keyboard" Content="Unpin Touch Keyboard" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top" IsChecked="False"/>
+                    <CheckBox x:Name="Unpin_All_Above" Content="Unpin All Above" HorizontalAlignment="Left" Margin="10,185,0,0" VerticalAlignment="Top" IsChecked="False"/>
+                    <Label x:Name="ExplainingLabel" Content="Windows Explorer might open after checking the boxes. Just close it" HorizontalAlignment="Left" Margin="10,469,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="label_22h2" Content="Start Menu 22H2" HorizontalAlignment="Left" Margin="10,185,0,0" VerticalAlignment="Top" FontSize="30" FontWeight="Bold"/>
+                    <Grid x:Name="GridGroupBox" VerticalAlignment="Top" Height="87" M|n="10,240,207,0">
+                        <RadioButton x:Name="RadioButton1" Content="Default" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                        <RadioButton x:Name="RadioButton2" Content="More Pins" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top"/>
+                        <RadioButton x:Name="RadioButton3" Content="More Recommendations" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top"/>
+                    </Grid>
+                    <CheckBox x:Name="TaskbarLeft" Content="ChangeTaskbar Location to left" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top" IsChecked="False" ToolTip="Testingers"/>
+                    <CheckBox x:Name="Unpin_Search11" Content="Unpin Search" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" IsChecked="False"/>
+                    <CheckBox x:Name="Unpin_Task_View_11" Content="Unpin Task View" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" IsChecked="False"/>
+                    <CheckBox x:Name="Unpin_Widget" Content="Unpin Widget" HorizontalAlignment="Left" Margin="10,125,0,0" VerticalAlignment="Top" IsChecked="False"/>
+                    <CheckBox x:Name="Unpin_Chat" Content="Unpin Chat" HorizontalAlignment="Left" Margin="10,145,0,0" VerticalAlignment="Top" IsChecked="False"/>
+                    <CheckBox x:Name="Unpin_All_Above_11" Content="Unpin All Above" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top" IsChecked="False"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="Tab2" Header="Explorer Settings">
+                <Grid Background="White">
+                    <Label x:Name="Label2" Content="Explorer Settings" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="30" FontWeight="Bold" Grid.ColumnSpan="2"/>
+                    <Label x:Name="ExplainingLabel2" Content="Windows Explorer might open after checking the boxes. Just close it" HorizontalAlignment="Left" Margin="10,469,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                    <CheckBox x:Name="HiddenFiles" Content="Show Hidden Files in Explorer" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top" IsChecked="False" Grid.ColumnSpan="2" Width="179"/>
+                    <CheckBox x:Name="FileExtensions" Content="Show File Extensions in Explorer" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" IsChecked="False" Grid.ColumnSpan="2"/>
+                    <CheckBox x:Name="ItemBoxes" Content="Item Check Boxes" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" IsChecked="False" Grid.ColumnSpan="2"/>
+                    <CheckBox x:Name="CompactView" Content="Compact View in Explorer" HorizontalAlignment="Left" Margin="10,125,0,0" VerticalAlignment="Top" IsChecked="False"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="Tab3" Header="Windows Settings">
+                <Grid Background="White">
+                    <Label x:Name="Label3" Content="Windows Settings" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="30" FontWeight="Bold" Grid.ColumnSpan="2"/>
+                    <CheckBox x:Name="ClockDisplay" Content="Taskbar Clock Display Seconds" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top" IsChecked="False"/>
+                    <CheckBox x:Name="AeroShake" Content="Disable Aero Shake" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" IsChecked="False" Grid.ColumnSpan="2"/>
+                    <Button x:Name="DebloatWin" Content="Debloat Windows" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" Height="29" Width="188" Background="White"/>
+                    <Button x:Name="DebloatWin_Copy" Content="Install Applications" HorizontalAlignment="Left" Margin="10,139,0,0" VerticalAlignment="Top" Height="29" Width="188" Background="White"/>
+                    <Button x:Name="DebloatWin_Copy1" Content="Update Windows" HorizontalAlignment="Left" Margin="10,173,0,0" VerticalAlignment="Top" Height="29" Width="188" Background="White"/>
+                    <CheckBox x:Name="Win10RC" Content="Windows 10 Right Click" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top" IsChecked="False"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="Tab4" Header="Powershell Settings">
+                <Grid Background="White">
+                    <Label x:Name="Label4" Content="Powershell Settings" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="30" FontWeight="Bold" Grid.ColumnSpan="2"/>
+                    <CheckBox x:Name="HideShell" Content="Hide Console" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top" IsChecked="True" Grid.ColumnSpan="2" Width="179"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="Tab5" Header="Version">
+                <Grid Background="White">
+                    <Label x:Name="Label5" Content="Version" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="30" FontWeight="Bold" Grid.ColumnSpan="2"/>
+                    <Label x:Name="OSLabel" Content="Windows Detector" HorizontalAlignment="Left" Margin="10,469,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="ExplainingLabel_Copy1" Content="Version 1.1.7 (Build 1170.01)" HorizontalAlignment="Left" Margin="279,469,0,0" VerticalAlignment="Top"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
