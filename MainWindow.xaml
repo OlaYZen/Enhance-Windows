@@ -20,7 +20,7 @@
                     <CheckBox x:Name="Unpin_All_Above" Content="Unpin All Above" HorizontalAlignment="Left" Margin="10,185,0,0" VerticalAlignment="Top" IsChecked="False"/>
                     <Label x:Name="ExplainingLabel" Content="Windows Explorer might open after checking the boxes. Just close it" HorizontalAlignment="Left" Margin="10,469,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="label_22h2" Content="Start Menu 22H2" HorizontalAlignment="Left" Margin="10,185,0,0" VerticalAlignment="Top" FontSize="30" FontWeight="Bold"/>
-                    <Grid x:Name="GridGroupBox" VerticalAlignment="Top" Height="87" M|n="10,240,207,0">
+                    <Grid x:Name="GridGroupBox" VerticalAlignment="Top" Height="87" Margin="10,240,207,0">
                         <RadioButton x:Name="RadioButton1" Content="Default" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
                         <RadioButton x:Name="RadioButton2" Content="More Pins" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top"/>
                         <RadioButton x:Name="RadioButton3" Content="More Recommendations" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top"/>

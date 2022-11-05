@@ -52,7 +52,7 @@ powershell.exe -WindowStyle Hidden -file > $null
 
 
 #$inputXML="C:\Users\olai.boe\Documents\GitHub\PSXAML\MainWindow.xaml"
-$inputXML = (new-object Net.WebClient).DownloadString("https://raw.githubusercontent.com/OlaYZen/PSXAML/main/MainWindow.xaml") #uncomment for Production
+$inputXML = (new-object Net.WebClient).DownloadString("https://raw.githubusercontent.com/OlaYZen/Enhance-Windows/Newest/MainWindow.xaml") #uncomment for Production
 
 $inputXML = $inputXML -replace 'mc:Ignorable="d"', '' -replace "x:N", 'N' -replace '^<Win.*', '<Window'
 [void][System.Reflection.Assembly]::LoadWithPartialName('presentationframework')
@@ -408,6 +408,17 @@ else
         }
 }
 
+function CompactView(){
+    if ($WPFCompactView.IsChecked)
+        {
+            Set-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\" -Name "UseCompactMode" -Value 1
+        }
+    else
+        {
+            Set-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\" -Name "UseCompactMode" -Value 0
+        }
+}
+
 
 $WPFUnpin_Search.Add_Checked{RemSearchwin10}
 $WPFUnpin_Search.Add_UnChecked{RemSearchwin10}
@@ -620,7 +631,7 @@ else {
 
 
 $WPFCompactView.Add_Checked({CompactView})
-$WPFCompactView.Add_UnChecked({HiddenFiles})
+$WPFCompactView.Add_UnChecked({CompactView})
 $value30 = Get-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "UseCompactMode"
 if($value30.UseCompactMode -eq 1)
 {
