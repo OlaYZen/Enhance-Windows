@@ -50,7 +50,9 @@ with this program you could remove or add stuff that is missing from both versio
     - Remove Aero Shake
  </details>
 
-📍Credits📍
----
-
+## 📍Credits📍
 - [OlaYZen](https://github.com/OlaYZen) - Making, Doing and Testing everything
+
+## 🤔Issues🤔
+- May not work under VM's
+- May not work on Debloated Systems
