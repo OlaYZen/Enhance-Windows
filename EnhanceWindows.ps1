@@ -40,19 +40,12 @@ write-host "                                           "
 
 
 
-
+$Branch = 'Newest'
 
 
 
 powershell.exe -WindowStyle Hidden -file > $null
-
-#Invoke-WebRequest -Uri https://raw.githubusercontent.com/OlaYZen/PSXAML/main/MainWindow.xaml?token=GHSAT0AAAAAABZUKU5I2XAWPS2BI54QQXQUY3CMKVA -OutFile $PSScriptRoot"".\xamlui.xaml
-#$xamlui = Import-Csv $PSScriptRoot"".\xamlui.xaml
-#$xamlFile=$xamlui
-
-
-#$inputXML="C:\Users\olai.boe\Documents\GitHub\PSXAML\MainWindow.xaml"
-$inputXML = (new-object Net.WebClient).DownloadString("https://raw.githubusercontent.com/OlaYZen/Enhance-Windows/Newest/MainWindow.xaml") #uncomment for Production
+$inputXML = (new-object Net.WebClient).DownloadString("https://raw.githubusercontent.com/OlaYZen/Enhance-Windows/$Branch/MainWindow.xaml") #uncomment for Production
 
 $inputXML = $inputXML -replace 'mc:Ignorable="d"', '' -replace "x:N", 'N' -replace '^<Win.*', '<Window'
 [void][System.Reflection.Assembly]::LoadWithPartialName('presentationframework')
