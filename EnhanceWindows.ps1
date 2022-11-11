@@ -159,6 +159,23 @@ function RemTouchKey(){
             c:\windows\explorer.exe
         }
 }
+
+function WebSearchStart { OptionalParameters
+    if ($WPFWebSearchStart.IsChecked){
+        Set-ItemProperty -path "HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer" -Name "DisableSearchBoxSuggestions" -Value 1
+        Stop-Process -n explorer
+        c:\windows\explorer.exe
+    }
+    else {
+        Set-ItemProperty -path "HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer" -Name "DisableSearchBoxSuggestions" -Value 0
+        Stop-Process -n explorer
+        c:\windows\explorer.exe
+    }
+}
+
+New-Item -Path "HKCU:\SOFTWARE\Policies\Microsoft\Windows" -Name "Explorer"
+reg.exe add HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer\ /v  DisableSearchBoxSuggestions /t  REG_DWORD /d  0
+
 function Unpinabovewin10(){
     if ($WPFUnpin_All_Above.IsChecked)
         {
@@ -649,6 +666,15 @@ $value32 = Get-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersi
 if($value32.Hidden -eq 1)
 {
     $WPFFileExtensions.IsChecked = $true
+}
+
+
+$WPFWebSearchStart.Add_Checked({FileExt})
+$WPFWebSearchStart.Add_UnChecked({FileExt})
+$value33 = Get-ItemProperty -path "HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer" -Name "DisableSearchBoxSuggestions"
+if($value33.Hidden -eq 1)
+{
+    $WPFWebSearchStart.IsChecked = $true
 }
 
 
