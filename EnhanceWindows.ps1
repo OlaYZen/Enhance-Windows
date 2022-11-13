@@ -1,3 +1,16 @@
+Write-Host "Administrator mode not detected. Start the program as admin"
+Write-Host "Administrator mode not detected. Start the program as admin"
+Write-Host "Administrator mode not detected. Start the program as admin"
+Write-Host "Administrator mode not detected. Start the program as admin"
+Write-Host "Administrator mode not detected. Start the program as admin"
+Write-Host "Administrator mode not detected. Start the program as admin"
+Write-Host "Administrator mode not detected. Start the program as admin"
+Write-Host "Administrator mode not detected. Start the program as admin"
+if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) { Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs; exit}
+
+Clear-Host
+
+
 Add-Type -AssemblyName PresentationFramework
 
 function OlaYZen {
@@ -420,6 +433,7 @@ else
         }
 }
 
+
 function CompactView(){
     if ($WPFCompactView.IsChecked)
         {
@@ -524,14 +538,6 @@ if($value5.SearchboxTaskbarMode -eq 0)
 }
 
 
-$WPFClockDisplay.Add_Checked({ClockSecs})
-$WPFClockDisplay.Add_UnChecked({ClockSecs}) 
-
-$value12 = Get-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowSecondsInSystemClock"
-if($value12.ShowSecondsInSystemClock -eq 1)
-{
-    $WPFClockDisplay.IsChecked = $true
-}
 
 
 
@@ -573,14 +579,6 @@ if(Test-Path 'HKCU:\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2
 }
 
 
-$WPFAeroShake.Add_Checked({DisableAeroShake})
-$WPFAeroShake.Add_UnChecked({DisableAeroShake})
-
-$value14 = Get-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "DisallowShaking"
-if($value14.DisallowShaking -eq 1)
-{
-    $WPFAeroShake.IsChecked = $true
-}
 
 
 
@@ -670,36 +668,6 @@ if($value32.Hidden -eq 1)
     $WPFFileExtensions.IsChecked = $true
 }
 
-function startinstall {
-    reg.exe add HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer\ /v  DisableSearchBoxSuggestions /t  REG_DWORD /d  0    
-}
-
-
-$WPFWebSearchStart.Add_Checked({WebSearchStartFun})
-$WPFWebSearchStart.Add_UnChecked({WebSearchStartFun})
-$value33 = Get-ItemProperty -path "HKCU:\Software\Policies\Microsoft\Windows\Explorer" -Name "DisableSearchBoxSuggestions"
-if($value33.DisableSearchBoxSuggestions -eq 0)
-{
-    write-host "DisableSearchBoxSuggestions Exists"
-    
-}
-elseif($value33.DisableSearchBoxSuggestions -eq 1)
-{
-    write-host "DisableSearchBoxSuggestions Exists"
-    $WPFWebSearchStart.IsChecked = $true
-}
-else 
-{
-    if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) { Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs;}
-    Write-host Adding DisableSearchBoxSuggestions to Reg Edit
-    Start-Sleep -Seconds 5
-    startinstall
-    Start-Sleep -Seconds 1
-    write-host "Adding DisableSearchBoxSuggestions to Registry, if it don't work. please start the program in administrator mode"
-    Start-Sleep -Seconds 5
-    iwr -useb http://enhance.olayzen.lol/ | iex
-    exit
-}
 
 
 
@@ -722,10 +690,72 @@ if($value4.TaskbarDa -eq 0)
 
 
 
+Clear-Host
+
+function startinstall {
+    reg.exe add HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer\ /v  DisableSearchBoxSuggestions /t  REG_DWORD /d  0    
+}
+
+write-host "==========================================="
+write-host "                                           "
+
+$WPFWebSearchStart.Add_Checked({WebSearchStartFun})
+$WPFWebSearchStart.Add_UnChecked({WebSearchStartFun})
+$value33 = Get-ItemProperty -path "HKCU:\Software\Policies\Microsoft\Windows\Explorer" -Name "DisableSearchBoxSuggestions"
+if($value33.DisableSearchBoxSuggestions -eq 0)
+{
+    write-host "DisableSearchBoxSuggestions Exists"
+    
+}
+elseif($value33.DisableSearchBoxSuggestions -eq 1)
+{
+    write-host "DisableSearchBoxSuggestions Exists"
+    $WPFWebSearchStart.IsChecked = $true
+}
+else 
+{
+    startinstall
+}
+
+$WPFClockDisplay.Add_Checked({ClockSecs})
+$WPFClockDisplay.Add_UnChecked({ClockSecs}) 
+
+$value12 = Get-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowSecondsInSystemClock"
+if($value12.ShowSecondsInSystemClock -eq 0)
+{
+    Write-host "ShowSecondsInSystemClock Exists"
+}
+elseif($value12.ShowSecondsInSystemClock -eq 1)
+{
+    $WPFClockDisplay.IsChecked = $true
+    Write-host "ShowSecondsInSystemClock Exists"
+}
+else 
+{
+    reg.exe add HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\ /v  ShowSecondsInSystemClock /t  REG_DWORD /d  0
+}
+
+
+$WPFAeroShake.Add_Checked({DisableAeroShake})
+$WPFAeroShake.Add_UnChecked({DisableAeroShake})
+
+$value14 = Get-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "DisallowShaking"
+if($value14.DisallowShaking -eq 0)
+{
+    write-host "DisallowShaking Exists"
+}
+elseif($value14.DisallowShaking -eq 1)
+{
+    write-host "DisallowShaking Exists"
+    $WPFAeroShake.IsChecked = $true
+}
+else 
+{
+    reg.exe add HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\ /v  DisallowShaking /t  REG_DWORD /d  0
+}
 
 
 
-Get-Variable WPF*
 
 
 
@@ -813,9 +843,25 @@ else {
 }
 
 
+write-host "                                           "
+write-host "==========================================="
+write-host "                                           "
+Write-Host $WPFOSLabel.Content
+write-host "                                           "
+write-host "==========================================="
+write-host "                                           "
+
+write-host "==========================================="
+write-host "                                           "
+Write-Host "Running "$WPFVersionNumber.Content
+write-host "                                           "
+write-host "==========================================="
+write-host "                                           "
 
 
+#Get-Variable WPF* 
 OlaYZen
+
 
 
 
