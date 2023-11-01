@@ -440,27 +440,41 @@ if($value8.ShowCortanaButton -eq 0)
 $WPFUnpin_People.Add_Checked({RemPeople})
 $WPFUnpin_People.Add_UnChecked({RemPeople})
 $value9 = Get-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People" -Name "PeopleBand"
-if($value9.PeopleBand -eq 0)
-{
-    $WPFUnpin_People.IsChecked = $true
+if ($value9) {
+    if ($value9.PeopleBand -eq 0) {
+        $WPFUnpin_People.IsChecked = $true
+    }
+}
+else {
+    # If the registry value doesn't exist, create it with a value of 0
+    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People" -Name "PeopleBand" -Value 0
 }
 
 $WPFUnpin_Ink_Workspace.Add_Checked({RemInkWS})
 $WPFUnpin_Ink_Workspace.Add_UnChecked({RemInkWS})
 $value10 = Get-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\PenWorkspace\" -Name "PenWorkspaceButtonDesiredVisibility"
-if($value10.PenWorkspaceButtonDesiredVisibility -eq 0)
-{
-    $WPFUnpin_Ink_Workspace.IsChecked = $true
+if ($value10) {
+    if ($value10.PenWorkspaceButtonDesiredVisibility -eq 0) {
+        $WPFUnpin_Ink_Workspace.IsChecked = $true
+    }
+}
+else {
+    # If the registry value doesn't exist, create it with a value of 0
+    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\PenWorkspace" -Name "PenWorkspaceButtonDesiredVisibility" -Value 0
 }
 
 $WPFUnpin_Touch_Keyboard.Add_Checked({RemTouchKey})
 $WPFUnpin_Touch_Keyboard.Add_UnChecked({RemTouchKey})
 $value11 = Get-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\TabletTip\1.7" -Name "TipbandDesiredVisibility"
-if($value11.TipbandDesiredVisibility -eq 0)
-{
-    $WPFUnpin_Touch_Keyboard.IsChecked = $true
+if ($value11) {
+    if ($value11.TipbandDesiredVisibility -eq 0) {
+        $WPFUnpin_Touch_Keyboard.IsChecked = $true
+    }
 }
-
+else {
+    # If the registry value doesn't exist, create it with a value of 0
+    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\TabletTip\1.7" -Name "TipbandDesiredVisibility" -Value 0
+}
 
 
 
@@ -750,9 +764,6 @@ if ($windowsVersion -eq 10) {
     $WPFOSLabel.Content = "OS NOT DETECTED"
 }
 
-
-
-OlaYZen
 
 
 

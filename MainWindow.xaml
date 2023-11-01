@@ -49,8 +49,8 @@
                     <CheckBox x:Name="ClockDisplay" Content="Taskbar Clock Display Seconds" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top" IsChecked="False"/>
                     <CheckBox x:Name="AeroShake" Content="Disable Aero Shake" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" IsChecked="False" Grid.ColumnSpan="2"/>
                     <Button x:Name="DebloatWin" Content="Debloat Windows" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" Height="29" Width="188" Background="White"/>
-                    <Button x:Name="DebloatWin_Copy" Content="Install Applications" HorizontalAlignment="Left" Margin="10,139,0,0" VerticalAlignment="Top" Height="29" Width="188" Background="White"/>
-                    <Button x:Name="DebloatWin_Copy1" Content="Update Windows" HorizontalAlignment="Left" Margin="10,173,0,0" VerticalAlignment="Top" Height="29" Width="188" Background="White"/>
+                    <Button x:Name="InstallApplicationsButton" Content="Install Applications" HorizontalAlignment="Left" Margin="10,139,0,0" VerticalAlignment="Top" Height="29" Width="188" Background="White"/>
+                    <Button x:Name="UpdateWindowsButton" Content="Update Windows" HorizontalAlignment="Left" Margin="10,173,0,0" VerticalAlignment="Top" Height="29" Width="188" Background="White"/>
                     <CheckBox x:Name="Win10RC" Content="Windows 10 Right Click" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top" IsChecked="False"/>
                 </Grid>
             </TabItem>
@@ -64,7 +64,7 @@
                 <Grid Background="White">
                     <Label x:Name="Label5" Content="Version" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="30" FontWeight="Bold" Grid.ColumnSpan="2"/>
                     <Label x:Name="OSLabel" Content="Windows Detector" HorizontalAlignment="Left" Margin="10,228,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="ExplainingLabel_Copy1" Content="Version 1.1.7 (Build 1171.02)" HorizontalAlignment="Right" Margin="0,228,10,0" VerticalAlignment="Top"/>
+                    <Label x:Name="ExplainingLabel_Copy1" Content="Version 1.1.7 (Build 1171.03)" HorizontalAlignment="Right" Margin="0,228,10,0" VerticalAlignment="Top"/>
                 </Grid>
             </TabItem>
         </TabControl>
