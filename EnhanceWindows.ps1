@@ -740,26 +740,15 @@ $WPFWin10RC.Visibility = "Hidden"
 
 
 
-if($value4.TaskbarDa -eq 0)
-{Win11}
-elseif($value4.TaskbarDa -eq 1)
-{Win11}
-elseif($value9.PeopleBand -eq 0)
-{Win10}
-elseif($value9.PeopleBand -eq 1)
-{Win10}
-elseif($value10.PenWorkspaceButtonDesiredVisibility -eq 0)
-{Win10}
-elseif($value10.PenWorkspaceButtonDesiredVisibility -eq 1)
-{Win10}
-elseif($value11.TipbandDesiredVisibility -eq 0)
-{Win10}
-elseif($value11.TipbandDesiredVisibility -eq 1)
-{Win10}
-else {
-    $OSlabel.Text = "OS NOT DETECTED"
-}
+$windowsVersion = [System.Environment]::OSVersion.Version.Major
 
+if ($windowsVersion -eq 10) {
+    Win10
+} elseif ($windowsVersion -eq 11) {
+    Win11
+} else {
+    $WPFOSLabel.Content = "OS NOT DETECTED"
+}
 
 
 
