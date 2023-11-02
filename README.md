@@ -25,7 +25,7 @@ iwr -useb https://enhance.olayzen.com/1.1.8 | iex
 
 
 ## 💡Features💡
-with this program you could remove or add stuff that is missing from both versions of Windows. Here is a list of what you could do in each operating system. Note that every feature does not crossover from Windows 11 to Windows 10 and vice versa
+You can use this program to remove or add features that are missing in both versions of Windows. Here is a list of what you can do in each operating system. Please note that not every feature is available in both Windows 11 and Windows 10, and vice versa.
 
 <details>
  <summary><b>Windows 10 Features</b></summary>
@@ -50,7 +50,7 @@ with this program you could remove or add stuff that is missing from both versio
     - Windows Explorer tabs before release
     - Installing Programs
     - Windows and Program Updates
-    - Remove Aero Shake
+    - Add/Remove Aero Shake
  </details>
 
 ## 📍Credits📍
