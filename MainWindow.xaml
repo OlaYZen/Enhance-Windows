@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Enhance Windows" Height="325" Width="673" Topmost="True" ResizeMode="NoResize" Icon="https://raw.githubusercontent.com/OlaYZen/Enhance-Windows/Pre-Release-v1.1.7/Enhance%20Windows.png">
+        Title="Enhance Windows" Height="325" Width="673" Topmost="True" ResizeMode="NoResize" Icon="https://raw.githubusercontent.com/OlaYZen/Enhance-Windows/Newest/Enhance%20Windows.png">
     <Grid>
         <TabControl>
             <TabItem x:Name="Tab1" Header="Taskbar Settings">
