@@ -95,9 +95,18 @@ write-host "=------------------------------="
 }
    
 
+function Restart-Explorer {
+    Stop-Process -Name explorer -Force
+    # Wait for 2 seconds (2000 milliseconds)
+    Start-Sleep -Milliseconds 20
+    # Check if Windows Explorer is running, and if not, restart it
+    if (-not (Get-Process -Name explorer -ErrorAction SilentlyContinue)) {
+        Start-Process explorer
+    }
+}
 
 
-$Branch = '1.1.8'
+$Branch = 'Release-v1.1.8'
 
 
 
@@ -132,14 +141,12 @@ function RemSearchwin10(){
     if ($WPFUnpin_Search.IsChecked)
         {
             Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search\" -Name "SearchboxTaskbarMode" -Value 0
-            Stop-Process -n explorer
-            c:\windows\explorer.exe
+            Restart-Explorer
         }
     else
         {
             Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search\" -Name "SearchboxTaskbarMode" -Value 2
-            Stop-Process -n explorer
-            c:\windows\explorer.exe
+            Restart-Explorer
         }
 }
 
@@ -147,14 +154,12 @@ function RemTaskViewwin10(){
     if ($WPFUnpin_Task_View.IsChecked)
         {
             Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\" -Name "ShowTaskViewButton" -Value 0
-            Stop-Process -n explorer
-            c:\windows\explorer.exe
+            Restart-Explorer
         }
     else
         {
             Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\" -Name "ShowTaskViewButton" -Value 1
-            Stop-Process -n explorer
-            c:\windows\explorer.exe
+            Restart-Explorer
         }
 }
 
@@ -162,28 +167,24 @@ function RemCortana(){
     if ($WPFUnpin_Cortana.IsChecked)
         {
             Set-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowCortanaButton" -Value 0
-            Stop-Process -n explorer
-            c:\windows\explorer.exe
+            Restart-Explorer
         }
     else
         {
             Set-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowCortanaButton" -Value 1
-            Stop-Process -n explorer
-            c:\windows\explorer.exe
+            Restart-Explorer
         }
 }
 function RemPeople(){
     if ($WPFUnpin_People.IsChecked)
         {
             Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People" -Name "PeopleBand" -Value 0
-            Stop-Process -n explorer
-            c:\windows\explorer.exe
+            Restart-Explorer
         }
     else
         {
             Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People" -Name "PeopleBand" -Value 1
-            Stop-Process -n explorer
-            c:\windows\explorer.exe
+            Restart-Explorer
         }
 }
 
@@ -191,14 +192,12 @@ function RemInkWS(){
     if ($WPFUnpin_Ink_Workspace.IsChecked)
         {
             Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\PenWorkspace\" -Name "PenWorkspaceButtonDesiredVisibility" -Value 0
-            Stop-Process -n explorer
-            c:\windows\explorer.exe
+            Restart-Explorer
         }
     else
         {
             Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\PenWorkspace\" -Name "PenWorkspaceButtonDesiredVisibility" -Value 1
-            Stop-Process -n explorer
-            c:\windows\explorer.exe
+            Restart-Explorer
         }
 }
 
@@ -206,14 +205,12 @@ function RemTouchKey(){
     if ($WPFUnpin_Touch_Keyboard.IsChecked)
         {
             Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\TabletTip\1.7" -Name "TipbandDesiredVisibility" -Value 0
-            Stop-Process -n explorer
-            c:\windows\explorer.exe
+            Restart-Explorer
         }
     else
         {
             Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\TabletTip\1.7" -Name "TipbandDesiredVisibility" -Value 1
-            Stop-Process -n explorer
-            c:\windows\explorer.exe
+            Restart-Explorer
         }
 }
 function Unpinabovewin10(){
@@ -242,8 +239,7 @@ function Unpinabovewin10(){
             Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People" -Name "PeopleBand" -Value 1
             Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\PenWorkspace\" -Name "PenWorkspaceButtonDesiredVisibility" -Value 1
             Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\TabletTip\1.7" -Name "TipbandDesiredVisibility" -Value 1
-            Stop-Process -n explorer
-            c:\windows\explorer.exe
+            Restart-Explorer
         }
 }
 
@@ -267,8 +263,7 @@ function Unpinabove(){
             Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\" -Name "TaskbarDa" -Value 1
             Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\" -Name "TaskbarMn" -Value 1
             Set-ItemProperty -path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\" -Name "ShowTaskViewButton" -Value 1
-            Stop-Process -n explorer
-            c:\windows\explorer.exe
+            Restart-Explorer
         }
 }
 
@@ -279,14 +274,12 @@ function FileExt(){
     if ($WPFFileExtensions.IsChecked)
         {
             Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\" -Name "HideFileExt" -Value 0
-            Stop-Process -n explorer
-            c:\windows\explorer.exe
+            Restart-Explorer
         }
     else
         {
             Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\" -Name "HideFileExt" -Value 1
-            Stop-Process -n explorer
-            c:\windows\explorer.exe
+            Restart-Explorer
         }
 }
 
@@ -294,14 +287,12 @@ function HiddenFiles(){
     if ($WPFHiddenFiles.IsChecked)
         {
             Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\" -Name "Hidden" -Value 1
-            Stop-Process -n explorer
-            c:\windows\explorer.exe
+            Restart-Explorer
         }
     else
         {
             Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\" -Name "Hidden" -Value 2
-            Stop-Process -n explorer
-            c:\windows\explorer.exe
+            Restart-Explorer
         }
 }
 
@@ -309,14 +300,12 @@ function ICBbutton(){
     if ($WPFItemBoxes.IsChecked)
         {
             Set-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "AutoCheckSelect" -Value 1
-            Stop-Process -n explorer
-            c:\windows\explorer.exe
+            Restart-Explorer
         }
     else
         {
             Set-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "AutoCheckSelect" -Value 0
-            Stop-Process -n explorer
-            c:\windows\explorer.exe
+            Restart-Explorer
         }
 }
 function HideShell(){
@@ -389,14 +378,12 @@ function Win10RC(){
     if ($WPFWin10RC.IsChecked)
         {
             reg.exe add "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" /f /ve
-            Stop-Process -n explorer
-            c:\windows\explorer.exe
+            Restart-Explorer
         }
     else
         {
             reg.exe delete "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}" /f
-            Stop-Process -n explorer
-            c:\windows\explorer.exe
+            Restart-Explorer
         }
 }
 
@@ -404,8 +391,7 @@ function RadButton1 {
     if ($WPFRadioButton1.IsChecked)
         {
             Set-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "Start_Layout" -Value 0
-            Stop-Process -n explorer
-            c:\windows\explorer.exe
+            Restart-Explorer
         }
 }
 
@@ -413,16 +399,14 @@ function RadButton2 {
     if ($WPFRadioButton2.IsChecked)
         {
             Set-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "Start_Layout" -Value 1
-            Stop-Process -n explorer
-            c:\windows\explorer.exe
+            Restart-Explorer
         }
 }
 function RadButton3 {
     if ($WPFRadioButton3.IsChecked)
         {
             Set-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "Start_Layout" -Value 2
-            Stop-Process -n explorer
-            c:\windows\explorer.exe
+            Restart-Explorer
         }
 }
 
@@ -431,14 +415,12 @@ function DisableAeroShake(){
     if ($WPFAeroShake.IsChecked)
         {
             Set-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "DisallowShaking" -Value 1
-            Stop-Process -n explorer
-            c:\windows\explorer.exe
+            Restart-Explorer
         }
     else
             {
                 Set-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "DisallowShaking" -Value 0
-                Stop-Process -n explorer
-                c:\windows\explorer.exe
+                Restart-Explorer
             }
     }
 
@@ -447,14 +429,12 @@ function ClockSecs(){
 if ($WPFClockDisplay.IsChecked)
     {
         Set-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowSecondsInSystemClock" -Value 1
-        Stop-Process -n explorer
-        c:\windows\explorer.exe
+        Restart-Explorer
     }
 else
         {
             Set-ItemProperty -path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowSecondsInSystemClock" -Value 0
-            Stop-Process -n explorer
-            c:\windows\explorer.exe
+            Restart-Explorer
         }
 }
 
