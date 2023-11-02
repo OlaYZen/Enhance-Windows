@@ -3,15 +3,26 @@
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/OlaYZen/Enhance-Windows?style=for-the-badge)
 ![GitHub repo size](https://img.shields.io/github/repo-size/OlaYZen/Enhance-Windows?color=orange&style=for-the-badge)
 
+# ⚠️ THIS IS A DEVELOPMENT BUILD, RUN IT AT YOUR OWN RISK ⚠️
+
 # This script Enhances both Windows 10 and 11
 
 ## ⭐**How to start the program**⭐
 
 Open a powershell window , and type: 
 ```
-iwr -useb https://enhance.olayzen.com/ | iex
+iwr -useb https://enhance.olayzen.com/1.1.8 | iex
 ```
 > or Download and run "EnhanceWindows.ps1" with powershell (You can't use it offline)
+
+### ✨ 1.1.8 New Features ✨
+* Updated UI
+* Added some 23H2 Features from Windows 11
+
+### 🐛 1.1.8 Fixes 🐛
+* Updated the flawed OS Detector
+* Works fully on Debloated Systems and VMs
+
 
 ## 💡Features💡
 with this program you could remove or add stuff that is missing from both versions of Windows. Here is a list of what you could do in each operating system. Note that every feature does not crossover from Windows 11 to Windows 10 and vice versa
