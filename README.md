@@ -17,7 +17,7 @@ This script Enhances both Windows 10 and 11
 
 Open a powershell window , and type: 
 ```
-iwr -useb https://raw.githubusercontent.com/OlaYZen/Enhance-Windows/Release-v1.1.6/EnhanceWindows.ps1 | iex
+iwr -useb https://enhance.olayzen.com/1.1.6 | iex
 ```
 > or Download and run "EnhanceWindows.ps1" with powershell
 
