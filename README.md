@@ -7,7 +7,7 @@
 
 # This script Enhances both Windows 10 and 11
 
-## ⭐**How to start the program**⭐
+## ⭐**How to start the program**
 
 Open a powershell window , and type: 
 ```
@@ -15,16 +15,16 @@ iwr -useb https://enhance.olayzen.com/1.1.8 | iex
 ```
 > or Download and run "EnhanceWindows.ps1" with powershell (You can't use it offline)
 
-### ✨ 1.1.8 New Features ✨
+### ✨ 1.1.8 New Features
 * Updated UI
 * Added some 23H2 Features from Windows 11
 
-### 🐛 1.1.8 Fixes 🐛
+### 🐛 1.1.8 Fixes
 * Updated the flawed OS Detector
 * Works fully on Debloated Systems and VMs
 
 
-## 💡Features💡
+## :triangular_flag_on_post: Features
 You can use this program to remove or add features that are missing in both versions of Windows. Here is a list of what you can do in each operating system. Please note that not every feature is available in both Windows 11 and Windows 10, and vice versa.
 
 <details>
@@ -53,5 +53,5 @@ You can use this program to remove or add features that are missing in both vers
     - Add/Remove Aero Shake
  </details>
 
-## 📍Credits📍
+## 📍 Credits
 - [OlaYZen](https://github.com/OlaYZen) - Making, Doing and Testing everything
