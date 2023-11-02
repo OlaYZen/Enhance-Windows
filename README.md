@@ -9,7 +9,7 @@ The script makes some part of windows 11 more like windows 10 (example: Desktop 
 
 Open a Powershell Window, and type: 
 ```
-iwr -useb https://raw.githubusercontent.com/OlaYZen/Enhance-Windows/Release-v1.1/Fix%20Windows%2011.ps1 | iex
+iwr -useb https://enhance.olayzen.com/1.1 | iex
 ```
 or Download and run Fix Windows 11.ps1
 
