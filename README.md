@@ -55,7 +55,3 @@ You can use this program to remove or add features that are missing in both vers
 
 ## 📍Credits📍
 - [OlaYZen](https://github.com/OlaYZen) - Making, Doing and Testing everything
-
-## 🤔Issues🤔
-- May not work under VM's
-- May not work on Debloated Systems
