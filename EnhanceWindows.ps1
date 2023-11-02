@@ -52,7 +52,7 @@ powershell.exe -WindowStyle Hidden -file > $null
 
 
 #$inputXML="C:\Users\olai.boe\Documents\GitHub\PSXAML\MainWindow.xaml"
-$inputXML = (new-object Net.WebClient).DownloadString("https://raw.githubusercontent.com/OlaYZen/Enhance-Windows/Newest/MainWindow.xaml") #uncomment for Production
+$inputXML = (new-object Net.WebClient).DownloadString("https://raw.githubusercontent.com/OlaYZen/Enhance-Windows/Release-v1.1.7/MainWindow.xaml") #uncomment for Production
 
 $inputXML = $inputXML -replace 'mc:Ignorable="d"', '' -replace "x:N", 'N' -replace '^<Win.*', '<Window'
 [void][System.Reflection.Assembly]::LoadWithPartialName('presentationframework')
