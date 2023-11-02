@@ -20,6 +20,7 @@ iwr -useb https://enhance.olayzen.com/1.1.8 | iex
 * Added some 23H2 Features from Windows 11
 
 ### 🐛 1.1.8 Fixes
+* Updated the flawed Restart of Explorer
 * Updated the flawed OS Detector
 * Works fully on Debloated Systems and VMs
 
