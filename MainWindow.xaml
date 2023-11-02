@@ -64,7 +64,7 @@
                 <Grid Background="White">
                     <Label x:Name="Label5" Content="Version" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="30" FontWeight="Bold" Grid.ColumnSpan="2"/>
                     <Label x:Name="OSLabel" Content="Windows Detector" HorizontalAlignment="Left" Margin="10,228,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="ExplainingLabel_Copy1" Content="Version 1.1.7 (Build 1171.03)" HorizontalAlignment="Right" Margin="0,228,10,0" VerticalAlignment="Top"/>
+                    <Label x:Name="ExplainingLabel_Copy1" Content="Version 1.1.7 (Build 1171.04)" HorizontalAlignment="Right" Margin="0,228,10,0" VerticalAlignment="Top"/>
                 </Grid>
             </TabItem>
         </TabControl>
