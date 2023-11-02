@@ -17,7 +17,7 @@ This script Enhances both Windows 10 and 11
 
 Open a [Elevated Windows Powershell Window](https://docs.microsoft.com/en-us/powershell/scripting/windows-powershell/starting-windows-powershell?view=powershell-7.2#with-administrative-privileges-run-as-administrator) , and type: 
 ```
-iwr -useb https://raw.githubusercontent.com/OlaYZen/Enhance-Windows/Release-v1.1.5.1/EnhanceWindows.ps1 | iex
+iwr -useb https://enhance.olayzen.com/1.1.5.1 | iex
 ```
 > or Download and run "EnhanceWindows.ps1" with an [elevated windows powershell window](https://docs.microsoft.com/en-us/powershell/scripting/windows-powershell/starting-windows-powershell?view=powershell-7.2#with-administrative-privileges-run-as-administrator)
 
